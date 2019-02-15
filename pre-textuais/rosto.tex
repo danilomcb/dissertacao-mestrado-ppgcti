@@ -1,0 +1,79 @@
+%
+% ********** Página de Rosto
+%
+
+% titlepage gera páginas sem numeração
+\begin{titlepage}
+
+\begin{center}
+
+\small
+
+% O comando @{} no ambiente tabular x é para criar um novo delimitador
+% entre colunas que não a barra vertical | que é normalmente utilizada.
+% O delimitador desejado vai entre as chaves. No exemplo, não há nada,
+% de modo que o delimitador é vazio. Este recurso está sendo usado para
+% eliminar o espaço que geralmente existe entre as colunas
+\begin{tabularx}{\linewidth}{@{}l@{}C@{}r@{}}
+% A figura foi colocada dentro de um parbox para que fique verticalmente
+% centralizada em relação ao resto da linha
+\parbox[c]{3cm}{\includegraphics[width=\linewidth]{./figuras/UFRN}} &
+\begin{center}
+\textsf{\textsc{Universidade Federal do Rio Grande do Norte\\
+Escola de Ciências e Tecnologia\\
+Programa de Pós-Graduação em Ciência, tecnologia e inovação}}
+\end{center} &
+\parbox[c]{3cm}{\includegraphics[width=\linewidth]{./figuras/ppgcti-abreveatura}}
+\end{tabularx}
+
+% O vfill é um espaço vertical que assume a máxima dimensão possível
+% Os vfill's desta página foram utilizados para que o texto ocupe
+% toda a folha
+\vfill
+
+\LARGE
+
+\textbf{Sobre a Preparação de Propostas de Tema, Dissertações
+e Teses no Programa de Pós-Graduação em Engenharia Elétrica e de Computação da UFRN}
+
+\vfill
+
+\Large
+
+\textbf{Danilo Mikael Costa Barros}
+
+\vfill
+
+\normalsize
+
+Orientador: Prof. Dr. Gláucio Bezerra Brandão
+% Se não houver co-orientador, comente a próxima linha
+\\[2ex] Co-orientador: Prof. Dr. Beltrano Catandura do Amaral
+
+\vfill
+
+\hfill
+\parbox{0.5\linewidth}{\textbf{%
+% Descomente as opções que se aplicam ao seu caso
+%Proposta de Tema para Qualificação}
+Dissertação de Mestrado}
+apresentada ao Programa de Pós-Graduação em Ciência, Tecnologia e Inovação da Escola de Ciências, Tecnologia e Inovação - EC\&T da Universidade Federal do Rio Grande do Norte - UFRN,
+como parte dos requisitos para obtenção do título de Mestre em Ciências, Tecnologia e Inovação.}
+%Doutor em Ciências.}
+
+\vfill
+
+\large
+
+% Este número de ordem deve ser obtido na coordenação do PPgEE
+% Corresponde ao número seqüencial da sua tese ou dissertação:
+% por exemplo, a 25ª tese de doutorado terá o número de ordem D25
+% Evidentemente, este dado não existe para propostas de tema, caso
+% em que a próxima linha deve ser comentada.
+Número de ordem PPgCTI: M000
+
+Natal, RN, maio de 2018
+
+\end{center}
+
+\end{titlepage}
