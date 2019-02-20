@@ -8,7 +8,6 @@
 \section{Contextualização e problema}
 \label{contextualização}
 
-
 % Falar um pouco sobre o cenário mundial de eólica
 
 % Falar sobre o problema com desempenho das máquinas
@@ -32,27 +31,55 @@ A energia eólica é vista como uma das mais promissoras fontes de energia, pela
 
 O Brasil recebe destaque no cenário mundial pelo elevado potencial eólico e pelo volume de geração de energia por fonte eólica, que tem crescido consideravelmente nos últimos anos. Com 508 usinas no total, o ano de 2017 terminou com 12,77 GW de potência eólica instalada, o que representou um crescimento de 18,87\% de potência em relação a dezembro de 2016, quando a capacidade instalada era de 10,74 GW \cite{boletim-anual-geracao-2017}.
 
-Em 2017 foram instalados 6,84 GW de potência, considerando todas as fontes de geração de energia elétrica. Desse crescimento, 47,86\% corresponde a fonte hidroelétrica e 29,62\% a fonte eólica. Com esse acréscimo de 2,03 GW de capacidade instalada, o total eólico permitiu para a fonte uma participação de 8,10\% da matriz elétrica brasileira, como pode ser observado no gráfico \ref{Fig:matriz-energetica-brasileira}, que apresenta a participação de todas as fontes de geração na matriz elétrica brasileira no final de 2017 \cite{boletim-anual-geracao-2017}.
+Em 2017 foram instalados no país 6,84 GW de potência, considerando todas as fontes de geração de energia elétrica. Desse crescimento, 47,86\% corresponde a fonte hidroelétrica e 29,62\% a fonte eólica. Com esse acréscimo de 2,03 GW de capacidade instalada, o total eólico permitiu para a fonte uma participação de 8,10\% da matriz elétrica brasileira, como pode ser observado no gráfico \ref{Fig:matriz-energetica-brasileira}, que apresenta a participação de todas as fontes de geração na matriz elétrica brasileira no final de 2017 \cite{boletim-anual-geracao-2017}.
 
 \begin{figure}[htbp!] \begin{center}
-\includegraphics[width=0.75\linewidth]{./figuras/matriz-energetica-brasileira}
+\includegraphics[width=0.65\linewidth]{./figuras/matriz-energetica-brasileira}
 \caption{Matriz energética brasileira}
 \label{Fig:matriz-energetica-brasileira}
 \end{center} 
 \end{figure}
 
-Sendo um dos países que mais investe em energia eólica no mundo, o Brasil também é considerado um dos mais atrativos para investimentos em energias renováveis. A fonte eólica, sozinha, foi responsável por cerca de 80\% dos investimentos em renováveis no país de 2005 até 2015 \cite{CENARIO}. Um dos maiores motivos do alto investimento em energia eólica no Brasil é o alto valor do fator de capacidade proporcionado pelos ventos brasileiros. O fator de capacidade aponta o aproveitamento do vento para produção de energia e é representado pela proporção entre a geração efetiva da usina em um intervalo de tempo e a sua potência instalada. Em 2017 o valor médio do fator de capacidade no Brasil foi de 42,9\%, tendo atingido maior fator mensal médio em setembro, com 60,6\%, enquanto que no restante do mundo a média do é de 24,7\%.
+Sendo um dos países que mais investe em energia eólica no mundo, o Brasil também é considerado um dos mais atrativos para investimentos em energias renováveis. A fonte eólica, sozinha, foi responsável por cerca de 80\% dos investimentos em renováveis no país de 2005 até 2015 \cite{CENARIO}. Um dos maiores motivos do alto investimento em energia eólica no Brasil é o alto valor do fator de capacidade proporcionado pelos ventos brasileiros. O fator de capacidade aponta o aproveitamento do vento para produção de energia e é representado pela proporção entre a geração efetiva da usina em um intervalo de tempo e a sua potência instalada. Em 2017 o valor médio do fator de capacidade no Brasil foi de 42,9\%, tendo atingido maior fator mensal médio em setembro, com 60,6\%, enquanto que no restante do mundo a média do é de 24,7\%\cite{boletim-anual-geracao-2017}.
 
 O crescimento da utilização da força dos ventos para a produção de energia atribui-se principalmente ao desenvolvimento tecnológico no setor, que elevou a competitividade em relação ao preço, quando comparado com outras fontes geradoras de energia elétrica. Entretanto, a implantação de parques eólicos ainda exige um alto nível de investimento inicial \cite{matrizes-energeticas-brasil}. Esse fato justifica o incentivo à realização de pesquisa e a busca de inovações nesta área.
 
-O desempenho dos empreendimentos eólicos é fator determinante na definição do ritmo de crescimento e participação da fonte eólica na matriz elétrica brasileira e, consequentemente, no alcance das metas fixados pelo Governo.
-
 O contributo social desta pesquisa é fornecer uma ferramenta que irá possibilitar o aumento da eficiência dos parques, conferindo, consequentemente, maior competitividade para a fonte eólica frente às demais fontes de geração, o que pode estimular a modicidade tarifária, a qual preconiza o consumo de energia mais barata para o cidadão brasileiro. Além disso, incentivar a expansão de fontes renováveis de energia, que não agridem o meio ambiente, é contribuir para o bem-estar humano.
 
+% Focar mais no problema
 
+\subsection{Conceitos preliminares}
+\label{Sec:conceitosPreliminares}
 
+\subsubsection{O aerogerador}
+\label{Sec:oAerogerador}
 
+Aerogeradores basicamente são dispositivos projetados para transformar energia cinética dos ventos em algum tipo de energia mecânica. Os aerogeradores podem ser classificados de acordo com a orientação de seu rotor entre aerogerador de eixo vertical ou de eixo horizontal.
 
+A maioria dos aerogeradores modernos utilizados comercialmente possuem em sua maioria eixo horizontal, três pás e um sistema de transmissão baseado em caixa multiplicadora. A figura \ref{Fig:ilustracaoAerogerador} ilustra os principais componentes de um aerogerador. São eles:
+
+\begin{itemize}
+    \item \textbf{Rotor:} Localizado no topo da torre, é composto pelo conjunto do hub e das pás. É o responsável por transferir a energia do vento através do torque para o eixo principal.
+    \item \textbf{Nacele:} Compartimento instalado no alto da torre que armazena os elementos responsáveis pala conversão da energia mecânica em energia elétrica.
+    \item \textbf{Torre:} Elemento que sustenta o rotor e a nacele na altura apropriada ao seu funcionamento.
+    \item \textbf{Yaw:} Sistema responsável pela rotação da nacele (controle de giro), especialmente para o posicionamento do rotor de forma perpendicular à direção do vento.
+    \item \textbf{Sistema de transmissão:} Composto pelo eixo principal e a caixa multiplicadora. O eixo principal transmite o torque gerado a partir da rotação das pás em uma frequência baixa. A caixa multiplicadora é responsável por elevar esta frequência de rotação até a entrada do gerador. Existem modelos de aerogeradores denominados de \textit{direct drive}, o torque do rotor é levado diretamente ao gerador, eliminando a necessidade de uso de caixa multiplicadora.
+    \item \textbf{Sistema Elétrico:} Composto por toda a parte de conversão, transmissão de energia e controle do aerogerador. O principal subcomponente deste sistema é o gerador.
+\end{itemize}
+
+\begin{figure}[htbp!] \begin{center}
+\includegraphics[width=0.75\linewidth]{./figuras/Aero-weg}
+\caption{Aerogerador AGW 110 / 2.1 do fabricante WEG. Extraído do portfólio do fabricante}
+\label{Fig:ilustracaoAerogerador}
+\end{center} 
+\end{figure}
+
+\section{Histórico}
+\label{Sec:historico}
+
+% * Surgimento da LogAp
+% * Falar sobre o know how em desenvolvimento de software para indústria
+% * Surgimento do projeto Windbox
 
 Não há um número mínimo ou máximo de páginas para propostas de tema,
 dissertações ou teses. Entretanto, se o seu documento for muito menor
