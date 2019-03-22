@@ -88,7 +88,7 @@ Os sistemas supervisórios são essenciais para o funcionamento de um parque eó
 
 A potência de uma turbina eólica varia de acordo com a velocidade do vento e cada turbina tem uma curva característica de desempenho de energia. Com essa curva é possível prever a produção de energia de um aerogerador, sem considerar detalhes técnicos de seus componentes. Assim, a curva de potência é um gráfico que indica qual a potência elétrica disponível no aerogerador para diferentes velocidades de vento \cite{iec-power-performance}.
 
-A quantidade de potência disponível no vento que pode ser convertida em potência mecânica por um aerogerador, é chamado de coeficiente de potência ($c_p$). Esse coeficiente normalmente é utilizado para comparar a eficiência entre diferentes aerogeradores. Na figura \ref{Fig:ilustracaoCurvaPotencia} é demonstrado o gráfico com a curva e o coeficiente de potência de um aerogerador. 
+A quantidade de potência disponível no vento que pode ser convertida em potência mecânica por um aerogerador, é chamado de coeficiente de potência ($c_p$). Esse coeficiente indica é utilizado para comparar a eficiência entre diferentes aerogeradores. Na figura \ref{Fig:ilustracaoCurvaPotencia} é demonstrado o gráfico com a curva e o coeficiente de potência de um aerogerador. 
 
 \begin{figure}[htbp!] \begin{center}
 \includegraphics[width=0.75\linewidth]{./figuras/curva-potencia-wobben}
@@ -98,21 +98,34 @@ A quantidade de potência disponível no vento que pode ser convertida em potên
 \end{center} 
 \end{figure}
 
-\subsection{Desempenho de aerogeradores}
+\section{Desempenho de aerogeradores}
 \label{Sec:desempenhoDeAerogeradores}
 
+O risco de um investimento em um parque eólico esta fortemente atrelado as diferenças entre a produção efetiva e a produção estimada durante a elaboração do projeto. A partir disso surge a necessidade do acompanhamento do funcionamento dos parques eólicos para que seja garantido o bom desempenho dos aerogeradores.
+
+A metodologia aplicada para o acompanhamento do desempenho dos parques, na maioria das vezes está prevista no contrato entre a empresa dona do parque eólico e a empresa fabricante dos aerogeradores e nesse caso essa verificação assume também um caráter de garantia no qual eventuais desvios podem originar penalizações, caso o desempenho seja abaixo do contratual.
+
+A grande maioria dos contratos entre os fabricantes e os parques eólicos levam em consideração a disponibilidade dos aerogeradores como parâmetro para acompanhamento do desempenho. Esse indicador não é efetivo para medir o desempenho e sim apenas uma contabilização do tempo em que as máquinas estiveram em operação ou em condições de operação.
+
 O desempenho de um aerogerador depende essencialmente da sua curva de potência e da sua disponibilidade. 
+
+\subsubsection{Curva de potência}
+\label{Sec:curvaPotenciaDesempenhoAerogeradores}
 
 Como mencionado anteriormente, a curva de potência de um aerogerador é uma curva característica que expressa a potência gerada em função da velocidade do vento. Essa ferramenta é essencial para avaliação de desempenho de um aerogerador, tanto para previsão de produção, como para avaliação dos resultados obtidos. Entretanto, a curva de potência garantida pelo fabricante de aerogerador e a curva obtida com a turbina em funcionamento nem sempre são iguais. Além do local onde é feita a garantia da curva de potência e do local onde opera o aerogerador serem diferentes, existem outras razões pelas quais podem existir desvios no comportamento da curva de potência. Algumas razões são:
 
 \begin{itemize}
   \item \textbf{Turbulência:} Pode ser definida como alterações na média da velocidade do vento em curtos períodos de tempo (ordem de segundos ou menos). Normalmente é gerada por conta da fricção com a superfície, causado pela topografia, e efeitos térmicos, por conta da variação da temperatura.
   \item \textbf{Efeito esteira:} Uma vez que a turbina eólica produz energia mecânica a partir da energia do vento incidente, o vento que "sai" da turbina tem um conteúdo energético muito menor que o do vento que "entrou". Pode ser definida como alterações na média da velocidade do vento que passou pelo rotor, podendo diminuir até um terço da velocidade inicial, formando uma esteira de vento turbulento. O diâmetro da esteira aumenta conforme o vento se afasta do rotor e se dissolve com uma distância média de 10 diâmetros do rotor.
-  \item \textbf{Complexidade do terreno:}
+  \item \textbf{Operação com limitação de potência:} Toda as turbinas são desenvolvidas com algum sistema de controle de potência. Para evitar danos ao equipamento é necessário limitar a potência mecânica do aerogerador durante ventos com velocidade acima da velocidade nominal de operação. Caso essa limitação de potência ocorrer por um longo período de tempo, trará prejuízos consideráveis ao parque eólico.
   \item \textbf{Deterioração e danificação nas pás:} A função das pás é converter, através da força de sustentação, a energia cinética do vento em energia mecânica. O seu desenho é feito para converter o máximo de energia possível, logo, o desgaste desta ao longo do tempo claramente afeta o desempenho aerodinâmico, afetando a sustentação gerada e consequentemente a potência retirada.
-  \item \textbf{Operação com limitação de potência:}
-  \item \textbf{Condições climáticas:}
+  \item \textbf{Condições climáticas:} Condições climáticas imprevistas podem afetar o desempenho de um aerogerador. Um exemplo são as baixas temperaturas, onde o gelo formado nas pás podem alterar o desempenho aerodinâmico, levando a perda energética. Outros casos que podem afetar o desempenho são a presença de insetos ou poeira, nas pás da turbina.
 \end{itemize}
+
+\subsubsection{Disponibilidade}
+\label{Sec:disponibilidadeDesempenhoAerogeradores}
+
+
 
 \section{Histórico}
 \label{Sec:historico}
