@@ -40,11 +40,13 @@ Em 2017 foram instalados no país 6,84 GW de potência, considerando todas as fo
 \end{center} 
 \end{figure}
 
-Sendo um dos países que mais investe em energia eólica no mundo, o Brasil também é considerado um dos mais atrativos para investimentos em energias renováveis. A fonte eólica, sozinha, foi responsável por cerca de 80\% dos investimentos em renováveis no país de 2005 até 2015 \cite{CENARIO}. Um dos maiores motivos do alto investimento em energia eólica no Brasil é o alto valor do fator de capacidade proporcionado pelos ventos brasileiros. O fator de capacidade aponta o aproveitamento do vento para produção de energia e é representado pela proporção entre a geração efetiva da usina em um intervalo de tempo e a sua potência instalada. Em 2017 o valor médio do fator de capacidade no Brasil foi de 42,9\%, tendo atingido maior fator mensal médio em setembro, com 60,6\%, enquanto que no restante do mundo a média do é de 24,7\%\cite{boletim-anual-geracao-2017}.
+Sendo um dos países que mais investe em energia eólica no mundo, o Brasil também é considerado um dos mais atrativos para investimentos em energias renováveis. A fonte eólica, sozinha, foi responsável por cerca de 80\% dos investimentos em renováveis no país de 2005 até 2015 \cite{CENARIO}. Um dos maiores motivos do alto investimento em energia eólica no Brasil é o alto valor do fator de capacidade proporcionado pelos ventos brasileiros. O fator de capacidade aponta o aproveitamento do vento para produção de energia e é representado pela proporção entre a geração efetiva da usina em um intervalo de tempo e a sua potência instalada. Em 2017 o valor médio do fator de capacidade no Brasil foi de 42,9\%, tendo atingido maior fator mensal médio em setembro, com 60,6\%, enquanto que no restante do mundo a média do é de 24,7\% \cite{boletim-anual-geracao-2017}.
 
-O crescimento da utilização da força dos ventos para a produção de energia atribui-se principalmente ao desenvolvimento tecnológico no setor, que elevou a competitividade em relação ao preço, quando comparado com outras fontes geradoras de energia elétrica. Entretanto, a implantação de parques eólicos ainda exige um alto nível de investimento inicial \cite{matrizes-energeticas-brasil}. Esse fato justifica o incentivo à realização de pesquisa e a busca de inovações nesta área.
+O crescimento da utilização da força dos ventos para a produção de energia atribui-se principalmente ao desenvolvimento tecnológico no setor, que elevou a competitividade em relação ao preço, quando comparado com outras fontes geradoras de energia elétrica \cite{matrizes-energeticas-brasil}. Entretanto, a implantação de parques eólicos ainda exige um alto nível de investimento. Com o crescimento do mercado e da concorrência, o valor de remuneração obtido nesses empreendimentos tem sido cada vez menor, fazendo com que os investidores não possam tolerar qualquer problemas no desempenho dos aerogeradores e buscar ao máximo reduzir os riscos associados ao negócio.
 
-O contributo social desta pesquisa é fornecer uma ferramenta que irá possibilitar o aumento da eficiência dos parques, conferindo, consequentemente, maior competitividade para a fonte eólica frente às demais fontes de geração, o que pode estimular a modicidade tarifária, a qual preconiza o consumo de energia mais barata para o cidadão brasileiro. Além disso, incentivar a expansão de fontes renováveis de energia, que não agridem o meio ambiente, é contribuir para o bem-estar humano.
+Monitorar continuamente o funcionamento de um parque eólico permite ao gestor de um parque eólico uma visão mais ampla do que esta acontecendo na sua produção. O maior benefício que isso pode trazer é detectar desempenhos insatisfatórios, identificar e corrigir os problemas que causaram esses desvios e com isso, evitar perdas na receita. Além disso, o conhecimento e os ensinamentos adquiridos ao longo do monitoramento podem ser de grande utilidade no projeto, na construção e na operação de outros parques.
+
+O contributo social desta pesquisa é fornecer uma ferramenta que irá possibilitar o monitoramento contínuo de parques eólicos, visando o aumento da eficiência desses parques, conferindo, consequentemente, maior competitividade para a fonte eólica frente às demais fontes de geração, o que pode estimular a modicidade tarifária, a qual preconiza o consumo de energia mais barata para o cidadão brasileiro. Além disso, incentivar a expansão de fontes renováveis de energia, que não agridem o meio ambiente, é contribuir para o bem-estar humano.
 
 % Focar mais no problema
 
@@ -88,6 +90,14 @@ Os sistemas supervisórios são essenciais para o funcionamento de um parque eó
 
 A potência de uma turbina eólica varia de acordo com a velocidade do vento e cada turbina tem uma curva característica de desempenho de energia. Com essa curva é possível prever a produção de energia de um aerogerador, sem considerar detalhes técnicos de seus componentes. Assim, a curva de potência é um gráfico que indica qual a potência elétrica disponível no aerogerador para diferentes velocidades de vento \cite{iec-power-performance}.
 
+Nas curvas de potência de um aerogerador estão definidas 3 zonas importantes:
+
+\begin{itemize}
+  \item \textit{Cut-in:} Representa a zona de arranque do aerogerador. Geralmente entre 2 e 4 m/s. Abaixo dessa velocidade não interessa extrair energia.
+  \item \textit{Velocidade nominal:} Velocidade de vento que permite obter uma potência próxima da nominal. Normalmente entre 12 e 15 m/s
+  \item \textit{Cut-out:} Velocidade de vento que o aerogerador é desligado por questões de segurança relacionadas a esforços mecânicos a que fica sujeito. Geralmente para velocidades de vento superiores a 25 m/s
+\end{itemize}
+
 A quantidade de potência disponível no vento que pode ser convertida em potência mecânica por um aerogerador, é chamado de coeficiente de potência ($c_p$). Esse coeficiente indica é utilizado para comparar a eficiência entre diferentes aerogeradores. Na figura \ref{Fig:ilustracaoCurvaPotencia} é demonstrado o gráfico com a curva e o coeficiente de potência de um aerogerador. 
 
 \begin{figure}[htbp!] \begin{center}
@@ -98,14 +108,16 @@ A quantidade de potência disponível no vento que pode ser convertida em potên
 \end{center} 
 \end{figure}
 
-\section{Desempenho de aerogeradores}
+\subsection{Desempenho de aerogeradores}
 \label{Sec:desempenhoDeAerogeradores}
 
 O risco de um investimento em um parque eólico esta fortemente atrelado as diferenças entre a produção efetiva e a produção estimada durante a elaboração do projeto. A partir disso surge a necessidade do acompanhamento do funcionamento dos parques eólicos para que seja garantido o bom desempenho dos aerogeradores.
 
 A metodologia aplicada para o acompanhamento do desempenho dos parques, na maioria das vezes está prevista no contrato entre a empresa dona do parque eólico e a empresa fabricante dos aerogeradores e nesse caso essa verificação assume também um caráter de garantia no qual eventuais desvios podem originar penalizações, caso o desempenho seja abaixo do contratual.
 
-A grande maioria dos contratos entre os fabricantes e os parques eólicos levam em consideração a disponibilidade dos aerogeradores como parâmetro para acompanhamento do desempenho. Esse indicador não é efetivo para medir o desempenho e sim apenas uma contabilização do tempo em que as máquinas estiveram em operação ou em condições de operação.
+A grande maioria dos contratos entre os fabricantes e os parques eólicos levam em consideração a disponibilidade dos aerogeradores como parâmetro para acompanhamento do desempenho. Esse indicador não é efetivo para medir o desempenho e sim apenas uma contabilização do tempo em que as máquinas estiveram em operação ou em condições de operação. É um conceito que não permite saber se foi produzido toda a energia que poderia ter sido produzida para as condições de vento verificadas.
+
+Segundo \citeasnoun{metodologia-avaliacao-desempenho-de-parques}, a medição do desempenho só foi verdadeiramente introduzida em um parque eólico quando se passou a associar a disponibilidade com a medição da curva de potência dos aerogeradores, levando em consideração as condições de funcionamento que essas máquinas foram submetidas no seus locais de instalação. Com isso as diversas perdas existentes em um parque eólico (elétricas, aerodinâmicas, falhas, etc) passaram a ser contabilizadas e a detecção de situações que antes não eram analisadas passaram a ganhar mais notoriedade.
 
 O desempenho de um aerogerador depende essencialmente da sua curva de potência e da sua disponibilidade. 
 
@@ -125,13 +137,60 @@ Como mencionado anteriormente, a curva de potência de um aerogerador é uma cur
 \subsubsection{Disponibilidade}
 \label{Sec:disponibilidadeDesempenhoAerogeradores}
 
+Pode-se dizer, de uma maneira geral, que a disponibilidade de um aerogerador esta relacionada com a avaliação da sua capacidade em desempenhar a função para o qual foi projetado, gerar energia. Devido a falhas de controle, problemas técnicos ou paradas para manutenção, os aerogeradores não estão todo tempo disponíveis para gerar energia. Com isso, durante a operação de um parque eólico, é necessário medir o quanto cada aerogerador ficou disponível para geração.
 
+Esse conceito pode no entanto ser interpretado de formas diferentes. Por um lado existem os fabricantes dos aerogeradores, que estão interessados em avaliar o período em que as turbinas se apresentaram operacionais, desde que se verifiquem as condições externas de meteorologia e da rede elétrica, para os quais foram projetados. Do outro lado exite o proprietário do parque, que valoriza mais o tempo de operação perdido em vez das razões que levaram a essa perda. Estes dois pontos de vistas formam os dois principais conceitos de disponibilidade em energia eólica: disponibilidade técnica, na perspectiva do fabricante e disponibilidade operacional, na perspectiva do proprietário. Em resumo, a principal diferença entre as duas visões está relacionado a causa de cada parada dos aerogeradores e, consequentemente, no nível de garantia esperada pelos proprietários e que os fabricantes podem não estar dispostos a assegurar.
+
+As diferenças entre a abordagem do fabricante e a do proprietário de um aerogerador geram discussões sobre os contratos de manutenção de um parque, que contemplam a definição da disponibilidade mínima a atingir (geralmente 97\% para a média da disponibilidade anual do conjunto de todos os aerogeradores de um parque), assim como as penalidades no caso de não comprimento.
+
+A definição das metodologias usadas para estimar a energia não produzida em consequência da redução da disponibilidade é praticamento o tema mais sensível dos contratos entre o fabricante e o proprietário dos aerogeradores.
+
+\citeasnoun{wind-turbine-availabily}, propõem um novo cálculo para a disponibilidade levando em consideração a energia produzida. Ao invés de calcular o tempo em que o aerogerador deixou de produzir, calcula-se a energia que deixou de ser produzida. As falhas de funcionamento nos aerogeradores tendem a ocorrer quando eles são mais solicitados, ou seja, quando a velocidade do vento é elevada, assim, \citeasnoun{wind-turbine-availabily} mostram que a disponibilidade com base na energia tende a ser superior à disponibilidade com base no tempo.
+
+\subsection{Monitoramento da operação de um parque eólico }
+\label{Sec:monitoramentoDeUmParqueEolico}
+
+O retorno financeiro de um parque eólico esta diretamente relacionado com o seu desempenho, uma vez que o bom desempenho está relacionado a maximização da energia produzida e assim, em consequência, a remuneração devida.
+
+O impacto do mau desempenho de um parque eólico ou de um ou mais dos aerogeradores que o constituem, pode afetar consideravelmente a o retorno financeiro de um projeto.
+
+Monitorar continuamente a produção de um parque eólico é uma das formas de identificar desvios e comportamentos inesperados nos aerogeradores. Esta é uma metodologia que esta fora do domínio de qualquer contrato entre o proprietário e o parque. É uma iniciativa dos proprietários de alguns parques, que tem como principal ideia de compreender melhor o comportamento das suas turbinas e, dessa forma, se colocar em posição de discutir com os fabricantes eventuais desvios na operação \cite{metodologia-avaliacao-desempenho-de-parques}.
+
+A principal ideia de monitorar continuamente o funcionamento de um parque eólico é caracterizar o comportamento dos aerogeradores, através da grande quantidade de informações, principalmente proveniente dos sistemas SCADA, para detectar quedas de desempenho das máquinas.
+
+Alguns dados que são comumente analisados são:
+\begin{itemize}
+    \item Potência gerada;
+    \item Velocidade e direção do vento dos sensores da nacelle;
+    \item Velocidade de rotação do rotor;
+    \item Número de horas de operação;
+    \item Ângulo de passo das pás (pitch);
+    \item Ângulo direção da nacelle;
+    \item Energia produzida;
+    \item Alarmes e eventos registrados;
+\end{itemize}
+
+Analisar, interpretar e validar toda a informação disponibilizada pelos aerogeradores de um parque (normalmente com uma amostragem de 10 minutos), é um trabalho muito analítico e que demanda experiência por parte da equipe responsável. Por esse motivo torna-se necessário o uso de um software especialista, que possa tornar esse processo o mais automático e confiável possível, entregando como resultado gráficos que permitam a detecção de anomalias e facilite a comparação do funcionamento entre os aerogeradores.
 
 \section{Histórico}
 \label{Sec:historico}
 % * Surgimento da LogAp
 % * Falar sobre o know how em desenvolvimento de software para indústria
 % * Surgimento do projeto Windbox
+
+Em 2013 foi fundada a LogAp Sistemas, empresa que nasceu com o intuito de prover soluções inovadoras para a industria, antes mesmo do conceito de indústria 4.0 se tornar popular. A empresa foi criada por quatro engenheiros de computação, que visavam prover soluções em tecnologia da informação com foco na gestão de produção de indústrias de processos. Como principal produto, a empresa desenvolveu na época um historiador de dados industriais, ou como e conhecido, sistema PIMS - \textit{Plant Information Management Systems}.
+
+Nos últimos 4 anos a empresa: passou por processo de incubação e foi graduada na Inova Metrópole, principal incubadora do Rio Grande do Norte; consolidou parcerias com a Logique Sistemas e o Centro de Tecnologia do Gás e Energias Renováveis (CTGAS-ER) e foi acelerada pelo SEBRAE-RN.
+A empresa conta com a experiência dos seus colaboradores nas áreas de engenharia de computação, desenvolvimento de software, automação industrial e gestão de projetos de inovação. Além disso, a experiência adquirida com anos dedicados à pesquisa em sistemas de informação em parceria com a Universidade Federal do Rio Grande do Norte - UFRN forneceu base científica e tecnológica primordial para os negócios da empresa.
+Os principais objetivos da LogAp Sistemas são:
+1 - Prover soluções de tecnologia da informação para auxílio na gestão de produção de industrias;
+2 - Prover serviço de desenvolvimento de software sob medida com foco em gestão de negócios;
+3 - Formar parcerias com instituições de C&T (ciência e tecnologia) investindo em pesquisa, desenvolvimento e inovação (P, D &I) de novos produtos e serviços;
+
+
+
+
+
 
 Não há um número mínimo ou máximo de páginas para propostas de tema,
 dissertações ou teses. Entretanto, se o seu documento for muito menor
