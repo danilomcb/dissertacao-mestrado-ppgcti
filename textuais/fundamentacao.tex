@@ -178,17 +178,75 @@ Analisar, interpretar e validar toda a informação disponibilizada pelos aeroge
 % * Falar sobre o know how em desenvolvimento de software para indústria
 % * Surgimento do projeto Windbox
 
-Em 2013 foi fundada a LogAp Sistemas, empresa que nasceu com o intuito de prover soluções inovadoras para a industria, antes mesmo do conceito de indústria 4.0 se tornar popular. A empresa foi criada por quatro engenheiros de computação, que visavam prover soluções em tecnologia da informação com foco na gestão de produção de indústrias de processos. Como principal produto, a empresa desenvolveu na época um historiador de dados industriais, ou como e conhecido, sistema PIMS - \textit{Plant Information Management Systems}.
+Neste tópico será abordado um breve histórico da trajetória da solução abordada nesse trabalho, assim como a empresa responsável pela criação.
 
-Nos últimos 4 anos a empresa: passou por processo de incubação e foi graduada na Inova Metrópole, principal incubadora do Rio Grande do Norte; consolidou parcerias com a Logique Sistemas e o Centro de Tecnologia do Gás e Energias Renováveis (CTGAS-ER) e foi acelerada pelo SEBRAE-RN.
-A empresa conta com a experiência dos seus colaboradores nas áreas de engenharia de computação, desenvolvimento de software, automação industrial e gestão de projetos de inovação. Além disso, a experiência adquirida com anos dedicados à pesquisa em sistemas de informação em parceria com a Universidade Federal do Rio Grande do Norte - UFRN forneceu base científica e tecnológica primordial para os negócios da empresa.
-Os principais objetivos da LogAp Sistemas são:
-1 - Prover soluções de tecnologia da informação para auxílio na gestão de produção de industrias;
-2 - Prover serviço de desenvolvimento de software sob medida com foco em gestão de negócios;
-3 - Formar parcerias com instituições de C&T (ciência e tecnologia) investindo em pesquisa, desenvolvimento e inovação (P, D &I) de novos produtos e serviços;
+%% Industria 4.0?
+
+\subsection{LogAp Sistemas}
+\label{Sec:logapSistemas}
+
+Em 2013 foi fundada a LogAp Sistemas, empresa potiguar que nasceu com o intuito de prover soluções inovadoras para a industria, antes mesmo do conceito de indústria 4.0 se tornar popular. A empresa foi criada por quatro engenheiros de computação, que visavam prover soluções em tecnologia da informação com foco na gestão de produção de indústrias de processos. O principal produto da empresa, na época era um historiador de dados industriais, ou como é conhecido, sistema PIMS - \textit{Plant Information Management Systems}.
+
+Os primeiros sistemas PIMS começaram a surgir no início da década de 1980. Durante todos esses anos que se passaram, esses tipos de sistemas passaram por diversas evoluções, juntamente com as próprias indústrias em si. Entretanto, a grande maioria das soluções disponíveis no mercado não acompanhou de fato a evolução da tecnologia dos dias de hoje, transformando-se em sistemas legados. Além disso, atualmente, estamos vivenciando uma nova revolução industrial, onde são gerados dados pelos mais diversos tipos de equipamentos e sistemas e esses dados são o centro dessa transformação. A centralização dos dados que antes era limitada apenas aos equipamentos e sistemas de uma indústria, agora chega ao cenário da necessidade de integrar diversas plantas e industrias diferentes possibilitando análises mais integradas \cite{gerencia-processo-automacao}.
+
+Apesar de serem soluções que oferecem grande disponibilidade através de redundância e espelhamentos, a maioria dos sistemas PIMS ainda possuem arquiteturas centralizadas com baixo potencial de escalabilidade. 
+
+Visualizando esse cenário, a LogAp Sistemas se espelhou em sistemas de \textit{internet} e \textit{cloud}, para criar um sistema PIMS com arquitetura horizontalmente escalável. Nasceu assim o Athenas Historian, uma solução distribuída em clusters capaz de se adequar a nova necessidade de armazenamento e processamento exigido pela empresas que estão aderindo ao conceito de industria 4.0. O Athenas Historian é uma solução desenvolvida e validada em conjunto com a UFRN, a Logique Sistemas e a Petrobras, é o fruto de anos de pesquisas na área de Big Data e coleta de dados industriais.
+
+Durante o período de criação do Athenas Historian, a LogAp Sistemas passou pelo processo de incubação e foi graduada na Inova Metrópole, uma das principais incubadoras do Rio Grande do Norte, se beneficiando do ecossistema criado pela Inova, um ambiente favorável à transformação de ideias em resultados expressivos de forma sustentável, que incentiva e promove o empreendedorismo e a inovação em tecnologia da informação através da interação entre universidade, governo, empresas e sociedade em geral.
+
+Por volta de 2013 a LogAp conseguiu mais força para o projeto, quando foi beneficiada com uma verba de fomento proveniente do progama RHAE do CnPq. O programa foi criado em 1987, em uma parceria do Ministério da Ciência, Tecnologia, Inovações e Comunicações (MCTIC) e do Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq) e é destinado à inserção de mestres e doutores em empresas privadas, preferencialmente de micro, pequeno e médio porte \cite{RHAE}.
+
+Com dificuldades de penetrar no pequeno mercado industrial potiguar e observando o crescente crescimento do mercado de geração de energia eólica (tanto no Brasil, como no Rio Grande do Norte), por volta de 2016, a LogAp decide realizar uma análise de mercado afim de obter dados sobre este segmento, verificar em qual contexto poderia atuar e saber qual o potencial do seu público-alvo nesse setor. Como na época nenhum dos membros da equipe da Logap possuía \textit{know-how} nesse setor, foi necessário buscar essa expertise. Nesse momento a LogAp buscou auxilio do CTGAS-ER (Centro de Tecnologias do Gás e Energias Renováveis), centro de referência em energia eólico no Brasil. Através desse contato a LogAp pôde validar quais eram as reais necessidades do mercado de energia eólica, em relação a sistemas para armazenamento, analise e visualização de dados, pôde entender mais sobre a concorrência nesse setor e visualizar a projeção de crescimento do marcado.
+
+Através da pesquisa de mercado, a LogAp e o CTGAS-ER chegaram a conclusão de que existia um mercado propício para soluções de análise de dados, que fosse capaz de auxiliar os gestores dos parque a identificarem rapidamente problemas na produção dos seus parques. Com esse pensamento, o Athenas Historian não seria a solução mais adequada para o cenário encontrado, pois se trata de uma ferramenta generalista que tem como o principal objetivo armazenar e disponibilizar dados para serem utilizados na criação de análises por algum especialista que entenda do setor produtivo utilizado. A partir desse ponto surgiu a iniciativa de uma parceria, para criação de uma solução, denominada inicialmente de Athenas Eolic, especifica para o setor de energia eólica, entre o CTGAS-ER, empresa detentora do conhecimento técnico em produção de energia eólica e a LogAp sistemas, empresa especializada em comunicação industrial e armazenamento e processamento de grandes volumes.
+
+\subsection{CTGAS-ER}
+\label{Sec:cetgas-er}
+
+Em 1999, foi criado uma parceria entre a Petrobras e o SENAI (Serviço Nacional de Aprendizagem Industrial) inicialmente chamada de CTGAS - Centro de Tecnologias do Gás, que logo depois ampliou a sua área de atuação e se passou a se chamar CTGAS-ER - Centro de Tecnologias do Gás e Energias Renováveis. Único no país, o CTGAS-ER é fruto da parceria entre a terceira maior empresa de energia do mundo, a Petrobras, e a maior instituição de educação profissional brasileira, o SENAI \cite{ctgas-apresentacao}.
+
+O Centro de Tecnologias do Gás e Energias Renováveis possui sede única em Natal - RN e atua em todo o território brasileiro no eixo de educação profissional, desenvolvimento tecnológico e prestação de serviço para a industria de gás natural e energias renováveis (eólica, solar e PCHs - Pequenas Centrais Hidrelétricas).
+
+Com sede em Natal, no Rio Grande do Norte, o CTGAS-ER atua em todo o país segundo os eixos de educação profissional, desenvolvimento tecnológico e prestação de serviços para o suporte tecnológico à indústria de gás natural e energias renováveis – eólica, solar e pequenas centrais hidroelétricas (PCHs).
+
+Como o mercado de energias renováveis é relativamente novo no Brasil, para atender a demanda especializada deste setor, o CTGAS-ER oferece:
+
+\begin{itemize}
+    \item Capacitação profissional: Diagnóstico de necessidades e qualificação de mão de obra especializada para a industria, através de cursos de nível técnico e superior.
+    \item Inteligência Estratégica da Energia: Suporte técnico para mapeamento das potencialidades dos recursos naturais e das oportunidades de negócios relativas às energias renováveis
+    \item Serviços Técnicos e Tecnológicos: Oferta de serviços técnicos laboratoriais, de inspeção e de consultoria para a indústria de energia.
+    \item Tecnologias: Suporte ao desenvolvimento de tecnologias iminentes ou que já estão sendo utilizadas comercialmente e disponibilização de novas soluções.
+\end{itemize}
+
+\subsection{Athenas Eolic}
+\label{Sec:athenasEolic}
+
+O aproveitamento energético de recursos eólicos no Brasil atravessa um momento de expansão em participação na matriz de energia elétrica nacional. No ano de 2016, ano que a LogAp tomou a iniciativa de entrar para o mercado de energia eólica o percentual dessa participação foi de 7,10\% segundo a  \citeasnoun{boletim-anual-geracao-2016}. Em julho de 2017 o Brasil atingiu uma capacidade instalada de energia eólica de 11,38 GW, com 457 parques eólicos em operação. Até 2020 a perspectiva é de que a capacidade instalada seja expandida em 6,60 GW, através da construção e contratação de mais 287 parques eólicos.
+
+Com a participação das usinas eólicas no Sistemas Interligado Nacional (SIN), a produção de energia precisa estar garantida na medida que o vento esteja presente. Para atender aos contratos de compra e venda, os parques eólicos, assim como as demais fontes de geração de energia, precisam fornecer uma quantidade mínima de energia para que não recebam sanções. 
+
+O vento é um dos itens de alto risco dentro da energia eólica. Hoje em dia existem diversas fontes de informações e modelagens de previsão de vento, que mitigam o risco de um projeto eólico. Além da variável vento, as manutenções não previstas formam o outro grupo de risco na operação de um projeto eólico. As falhas não previstas estão sujeitas a ocorrer a qualquer momento e podem fazer com que um ou mais aerogeradores de um parque fique indisponível para geração de energia. O cenário agrava quando isso acontece em períodos de ventos fortes.
+
+Todo equipamento sofre desgaste, ou por utilização normal ou por utilização de forma intensa. Para o desempenho de um equipamento se manter dentro do patamar de rendimento adequado, é necessário que as sua condições de funcionamento sejam as mais apropriadas. Isso significa que ao longo do ciclo de vida de um equipamento, estes necessitam de intervenções (ações planejadas, não planejadas, reparos, inspeções, etc.) para que sejam colocadas as suas condições de funcionamento dentro dos parâmetros adequados. Estas ações fazem parte da atividade de manutenção, que corresponde a um conjunto de ações necessárias para garantir o bom desempenho de um determinado equipamento. Quando bem administrada, a manutenção torna-se um fator relevante na economia de uma empresa. Associado a manutenção têm-se o tempo de intervenção, tempo de indisponibilidade (tempo de parada devido danos), custos das reparações, etc. Logo, uma boa manutenção ajuda a minimizar as avarias, prevenindo paradas e aumentando o tempo de disponibilidade dos equipamentos \cite{manutencao-sistemas-geracao-energia-renovavel}.
+
+Pensando em restringir cada vez mais o risco de indisponibilidade na geração de energia por conta das manutenções, os proprietários de parques criam contratos de manutenção com os fabricantes dos aerogeradores, o qual estes se responsabilizam por garantir um valor de disponibilidade de funcionamento mínimo. A maior parte dos contratos no Brasil determina que o responsável pela manutenção precisa garantir uma disponibilidade mínima de operação de 97\% do tempo de funcionamento dos aerogeradores. Em caso de não cumprimento desta clausula, o responsável por realizar as manutenções deve pagar uma multa à usina \cite{confiabilidade-aplicada-manutencao-preventiva}.
+
+O contínuo monitoramento do funcionamento de um parque eólico é um passo importante para a identificação de baixo desempenho, assim como as razões destes desvios. Alguns proprietários de parques tem procurado realizar esse tipo de procedimento para que seja possível questionar de forma sustentável, os fabricantes em relação a eventuais desempenhos insatisfatórios.
+
+Mesmo hoje em dia com o crescente avanço das tecnologias e da quarta revolução industrial que vivemos, poucos são os proprietários de parques que têm visão de avaliação dos seus empreendimentos, ficando na maioria das vezes reféns de análises duvidosas que podem levar a conclusões erradas em relação a operação e ao desempenho dos parques eólicos. De uma maneira geral, pode-se dizer que o proprietário realiza uma avaliação anual de desempenho, comparando a energia produzida com um valor de referência assumido para o parque. Se desta comparação resultar uma produção anual superior ao valor de referência, na maioria das vezes a analisa termina. Caso contrário, se for encontrado um valor inferior ao esperado, é investigado se ocorreu quebra na disponibilidade, que possa justificar a situação e responsabilizar o fabricante, caso esteja relacionado a baixa disponibilidade dos aerogeradores, ou o operador da rede, caso esteja relacionado a baixa disponibilidade da rede elétrica \cite{metodologia-avaliacao-desempenho-de-parques}.
+
+Segundo \citeasnoun{metodologia-avaliacao-desempenho-de-parques}, as discussões entre os fabricantes e os proprietários dos parques são, na maioria das vezes, inconclusivas. Isso se dá devido ao fato de que o proprietário dispões de poucas informações para apresentar ao fabricante, que este por sua vez, dispões de uma quantidade muito maior de dados e conhecimento em relação a operação do parque. O questionamento do desempenho insatisfatório ser baseado em critérios que não transparecem seguranças nas conclusões, é facilmente rebatida pelo fabricante.
 
 
 
+Nesse contexto foi iniciado a criação do sistema  Athenas Eolico para auxiliar na gestão da operação e manutenção de parques eólicos, com tecnologias e relatórios adequados à realidade operacional do Brasil, principalmente na especificidade meteorológica dos país.
+
+A presente proposta visa o amadurecimento do sistema integrado Windbox, tanto do ponto de vista técnico e científico, como do ponto de vista mercadológico. De modo a agregar novas funcionalidades e características, tornando-o um sistema mais completo a fim de possibilitar aos gestores dos parques eólicos maior assertividade nas decisões do empreendimento. 
+
+Para alcançar a solução proposta será necessário o desenvolvimento de comunicação com o sistema supervisório dos aerogeradores por meio de protocolos industriais como OPC DA e OPC DA XML para aquisição dos dados que serão utilizados para a criação de índices, relatórios e recomendações para predição e diagnóstico de falhas e análise de estações meteorológicas.
+
+Como resultados, espera-se fortalecer a cadeia produtiva de energia no Brasil, através do aumento da eficiência na geração de energia eólica, por meio de tecnologia de ponta nacional  e suporte técnico especializado local em detrimento de soluções importadas.
 
 
 
