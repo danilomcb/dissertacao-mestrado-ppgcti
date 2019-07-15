@@ -2,369 +2,221 @@
 %% Capítulo 2: Expressões matemáticas
 %%
 
-\mychapter{Trabalhos relacionados}
-\label{Cap:TrabalhosRelacionados}
+\mychapter{Desenvolvimento da solução}
+\label{Cap:desenvolvimento-da-solucao}
 
-Visando esse cenário de expansão de geração de energia eólica no Brasil, e a posição estratégica da região Nordeste, em específico o estado do Rio Grande Norte, a LogAp Sitemas une a sua  expertise no desenvolvimento de software de análises de dados industriais, com a expertise técnica do CTGAS-ER em energias renováveis, especificamente em energia eólica, para desenvolverem juntos o Windbox. Além das dificuldades dos gestores e operadores em realizarem análises de disponibilidade e desempenho  e detecção prévia de falhas dos ativos físicos dos parques eólicos, julgamos unir os principais elementos necessários para construção de uma solução que irá contribuir para uma maior eficiência dos parques eólicos.
+A principal característica do Windbox é a disponibilização de análises, realizadas sobre os dados dos aerogeradores fornecido no sistema SCADA, para que os gestores dos parques eólicos possam identificar rapidamente desvios na produção e corrigi-los em tempo hábil. Para a criação destas análises, o Windbox utiliza como base as normas técnicas internacionais de energia eólica desenvolvidas pelo Comitê Técnico 88 da Comissão Eletrotécnica Internacional (International Electrotechnical Commission - IEC). 
 
+Nesta seção será discutido as principais características técnicas que estão presentes no Windbox: normas da IEC, tecnologias utilizadas e o modelo de negócio.
 
+\section{Nomas da IEC}
+\label{Sec:normas-iec}
 
-Atualmente o sistema Athenas Eólico possui os seguintes módulos implementados:
+Em 1987 o Comitê Internacional de Eletrotécnica (IEC) criou a comissão técnica 88 (TC 88) com a ideia de padronizar assuntos relacionados a turbinas eólicas. A norma originada foi a IEC 61400 e especifica os requisitos essenciais de projeto, fabricação, instalação operação e manutenção. O seu principal objetivo é disponibilizar um nível adequado de proteção contra danos causados por todo tipo de risco durante a vida útil prevista dos equipamentos. Ela abrange todos os subsistemas de um turbina eólica e se aplica a todos os tamanhos de aerogeradores.
+
+A norma da IEC 61400 está dividida em várias partes, cada uma delas com um determinado título e assunto. As que estão atualmente em vigor são:
+
 \begin{itemize}
-	\item Análise de curva de potência: este módulo permite comparar a curva de potência contratual do aerogerador com a curva real com base em especificação da norma IEC 61400-12-1, possibilitando ao gestor maior respaldo nas negociações das manutenções efetuadas pelo fabricante durante o período de garantia do parque.
-	\item Análise de Eventos/Alarmes: este módulo possibilita uma análise de disponibilidades dos aerogeradores do parque de modo a identificar os principais eventos que contribuem para paradas não programadas.
-	\item Análise de produção energética considerando a curva certificada da unidade aerogeradora e do parque eólico de acordo com a norma IEC 61400-26-2: módulo possibilita uma análise da produção de energia do parque, detalhando informações de produção potencial, real e estimativa de perda em conjunto com indicadores de disponibilidade e desempenho do parque.
+    \item IEC 61400-1: Requisitos de projeto (\textit{Design requirements})
+    \item IEC 61400-2: Pequenas turbinas eólicas (\textit{Smallwind turbines})
+    \item IEC 61400-3: Requisitos de projeto para turbinas eólicas offshore (\textit{Design requirements for offshore wind turbines})
+    \item IEC 61400-4: Requisitos de projeto para caixas de engrenagens de turbinas eólicas (\textit{Design requirements for wind turbine gearboxes})
+    \item IEC 61400-5: Pás do rotor da turbina eólica (\textit{Wind turbine rotor blades})
+    \item IEC 61400-11: Técnicas de medição de ruído (\textit{Acoustic noise measurement techniques})
+    \item IEC 61400-12: Medições do desempenho de potência de aerogeradores (\textit{Wind turbine power performance testing})
+    \item IEC 61400-13: Medição de cargas mecânicas (\textit{Measurement of mechanical
+loads})
+    \item IEC 61400-14: Indicação de níveis aparentes de potência sonora (\textit{Declaration of apparent sound power level and tonality values})
+    \item IEC 61400-21: Medição e avaliação das características da qualidade da energia de aerogeradores conectados à rede (\textit{Measurement and assessment of power quality characteristics of grid connected wind turbines})
+    \item IEC 61400-22: Teste de conformidade e certificação (\textit{Conformity testing and certification})
+    \item IEC 61400-23: Teste estruturais em larga escala das pás do rotor (\textit{Full-scale structural testing of rotor blades})
+    \item IEC 61400-24: Proteção contra descargas atmosféricas (\textit{Lightning protection})
+    \item IEC 61400-25: Protocolo de comunicação (\textit{Communication protocol})
+    \item IEC 61400-26: Disponibilidade de tempo com base em turbinas eólicas (\textit{Time basedavailability for wind turbines})
+    \item IEC 61400-27: Modelos de simulação elétrica para o gerador eólico (\textit{Electrical simulation models for Wind power generation})
 \end{itemize}
-Assim, o presente projeto visa o amadurecimento do sistema integrado Athenas Eólico, tanto do ponto de vista técnico e científico, como do ponto de vista mercadológico. De modo a agregar desenvolvimentos de novas funcionalidades como: notificação de eventos de alerta, gerenciamento de manutenções, diagnósticos preditivo de falhas, construção de base de conhecimento e demais módulos descritos nos objetivos específicos.
 
-Espera-se ao final do projeto que a solução de sistema integrado seja capaz de oferecer aos gestores, operadores e investidores de empreendimentos eólicos os seguintes benefícios:
+O Windbox faz uso da IEC 61400-12 e da IEC 61400-26. A primeira, define as técnicas para medição da potência de geração. Já a segunda, define termos genéricos para descrever a disponibilidade do aerogerador e seus componentes, além da expectativa de vida e critérios para determinar os intervalos de manutenção das turbinas.   
 
-\begin{enumerate}
-\item Apoio na decisão, planejamento e gestão da Operação e Manutenção (O\&M) do parque eólico.
-\item Fiscalização e monitoramento do desempenho e disponibilidade do parque eólico em comparação com o contratado com o fabricante em termos de curvas de certificação.
-\item Otimização da produção com aumento da disponibilidade e performance, maximizando a produção.
-\item Análise anemométrica nas fases de campanhas de medição anemométrica e de operação do parque.
-\item Controle de manutenções corretivas e base de conhecimento para respaldo de melhor solução para determinada problemática.
-\item Análise de dados independente do fabricante.
-\item Relatórios automatizados de prestação de conta para investidores e diretores.
-\item Relatórios automatizados para órgãos regulatórios como EPE e ONS.
-\item Mitigação de riscos regulatórios (Multas).
-\end{enumerate}
+O principal objetivo da IEC 61400-12 é a definição da curva de potência do aerogerador. A curva de potência apresenta a relação entre a velocidade do vento incidente sobre o rotor e a potência elétrica gerada pelo aerogerador, como comentado na seção \ref{Sec:desempenhoDeAerogeradores}. Com esse dado é possível extrair indicadores de desempenho e saber se o aerogerador está gerando energia, para as condições de vento encontradas, conforme foi especificado pelo fabricante.
 
+Como foi dito na seção \ref{Sec:disponibilidadeDesempenhoAerogeradores}, a disponibilidade de um aerogerador pode ser interpretada de diferentes formas na visão dos fabricantes (disponibilidade técnica) e dos proprietários de parques (disponibilidade operacional). A principal diferença entre esses dois conceitos está na classificação de cada parada do aerogerador. A IEC 61400-26 veio para padronizar e catalogar os estados que um aerogerador pode assumir  durante a sua operação, para que possa ser atingido um nível de consenso aceitável nas discussões sobre disponibilidade entre os fabricantes e os proprietários de parques.
 
+\section{Tecnologias utilizadas}
+\label{Sec:tecnologias}
 
+%% Falar que é uma solução em nuvem.
 
-Nos trabalhos relacionados, coloque a essência dos trabalhos no domínio abordado (com referências bibliográficas). Isto não inclui citações específicas e particulares para trabalhos anteriores (seus e de outros), mas sim, algo mais genérico, por categoria ou características (por exemplo, classificar os trabalhos segundo as técnicas empregadas). É muito interessante também construir uma tabela (quem lê gosta muito e com certeza elogia!). Escolha apenas os trabalhos estritamente relacionados com o seu (muito similares) para comentar especificamente, sem categorias (por exemplo, ``O trabalho de Fulano [10] propõe uma abordagem muito similar à nossa, porém diferindo pela base wavelet usada...''). Ao final, contextualize o seu trabalho, situando-o em relação ao quadro (tabela) e a esses estritamente relacionados (dizer no que o seu trabalho melhora ou se distingue dos anteriores). E, principalmente, lembre-se de ser educado sempre: nunca desmereça os trabalhos dos outros.
+O Windbox é uma solução que realiza análise sobre os dados dos aerogeradores fornecido no sistema SCADA. Todo o sistema é baseado em computação em nuvem, ou seja, o cliente do Windbox não necessita de uma infraestrutura própria para adquirir a solução. Uma das etapas mais importantes do sistemas consiste ma na coleta dos dados. Segundo \citeasnoun{integracao-sistemas-scada}, no meio industrial, o sistema SCADA pode disponibilizar diversos tipos de protocolos de comunicação para acesso aos dados, como por exemplo: ODBC, DNP3, OPC e Modbus. 
 
+No Windbox, a coleta dos dados do SCADA é realiza através do módulo \textit{Windbox Collector}. Nesse módulo estão implementados alguns dos mais comuns protocolos de comunicação, como por exemplo: OPC Classic, OPC UA, ODBC e IMAP. No setor de energia eólica o principal protocolo utilizado pelo Windbox é o OPC.
 
-\section{Expressões matemáticas}
-\label{Sec:expressoesMatematicas}
+O OPC é um protocolo de conectividade de dados baseado nos populares padrões COM/DCOM de comunicação da \textit{Microsoft}. O OPC Classic, nome dado ao primeiro padrão criado, foi idealizado com a proposta de facilitar a conectividade entre os diversos dispositivos de chão de fábrica (SCDs, CLPs, etc) e as aplicações de software (SCADA, historiadores, etc), padronizando a forma de comunicação entre eles. Há diversas especificações de OPC Classic adequadas às diferentes situações de uso de dados: OPC DA (Data Access) para dados instantâneos, OPC HDA (Historical Data Access) para dados históricos e OPC A\&E (Alarms and Events) para dados de alarmes e eventos. Nos dias atuais o OPC Classic vem dando espaço ao OPC UA, versão mais atual do OPC que vem se tornando cada vez mais popular nas industrias devido a facilidade de uso e a compatibilidade com outros sistemas operacionais.
 
-\LaTeX~é insuperável no processamento de expressões matemáticas. Expressões
-simples como $2^{n}$ podem ser editadas no próprio texto. Equações
-complexas como:
-% eqnarray é o comando LaTeX de base para expressões multilinhas com
-% alinhamento. O & indica o ponto onde todas as linhas devem ser
-% alinhadas. Neste capítulo serão apresentadas outras opções de alinhamento
-\begin{eqnarray} \label{eq:PDF:RSR}
-  p \left( \gamma \right) & = & \frac{1}{2} \sqrt{\frac{M}{\gamma \bar{\gamma}_{b}}} \frac{1}{ \prod_{i=1}^M {\sqrt{\tilde{\gamma}_i}}}
-  \int_0^{\sqrt{M \delta}} \int_0^{\sqrt{M \delta} - r_M } \cdots
-  \int_0^{\sqrt{M \delta} - \sum_{i = 3}^M {r_i } } \nonumber \\
-  & & p \left( {\frac{\sqrt{M \delta} - \sum_{i = 2}^M {r_i }}{\sqrt{\tilde{\gamma}_1}} ,
-  \frac{r_2}{\sqrt{\tilde{\gamma}_2}} , \ldots ,\frac{r_M}{\sqrt{\tilde{\gamma}_M}} } \right)
-  \, dr_2 \cdots dr_{M-1} \, dr_M
-\end{eqnarray}
-% sem linha em branco
-ou:
-% sem linha em branco
-\begin{equation} \label{eq:TrCGI}
-  T(r) = \frac{1}{f_m}
-  \left( \frac{\pi}{2} \sum_{i=1}^M
-  {\tilde{r}_i^2 \dot{\varsigma}_i^2}\right)^{-1/2}
-  \frac
-  {\begin{array}{ll}
-  \int_0^{\rho \sqrt{M}} \int_0^{\rho \sqrt{M} - r_M } \cdots
-  \int_0^{\rho \sqrt{M} - \sum_{i = 3}^M {r_i } } \int_0^{\rho \sqrt{M} -
-  \sum_{i = 2}^M {r_i } }  \\
-  p \left( {\frac{r_1}{\tilde{r}_1} ,
-  \frac{r_2}{\tilde{r}_2} , \ldots ,\frac{r_M}{\tilde{r}_M} } \right)
-  \, dr_1 \, dr_2 \cdots dr_{M-1} \, dr_M \\ \end{array}}
-  {\begin{array}{ll}
-  \int_0^{\rho \sqrt{M}} \int_0^{\rho \sqrt{M} - r_M } \cdots
-  \int_0^{\rho \sqrt{M} - \sum_{i = 3}^M {r_i } } \\
-  p \left( {\frac{\rho \sqrt{M} - \sum_{i = 2}^M {r_i }}{\tilde{r}_1} ,
-  \frac{r_2}{\tilde{r}_2} , \ldots ,\frac{r_M}{\tilde{r}_M} } \right)
-  \, dr_2 \cdots dr_{M-1} \, dr_M \\ \end{array}}
-\end{equation}
+Com a informação do sistema SCADA sendo coletada pelo \textit{Windbox Collector}, os dados precisam ser armazenados. Nesse caso o módulo responsável no sistema por essa função é o \textit{Windbox Data Base}. Neste módulo encontra-se uma das maiores inovações do Winbdox.
 
-% ops, aqui eu deixei uma linha em branco de propósito
-são automaticamente numeradas e podem ser referenciadas a partir do
-texto. Por exemplo, a equação~\ref{eq:TrCGI} é trivialmente derivada
-da equação~\ref{eq:PDF:RSR}.
+Tomando como exemplo um único parque eólico com 15 aerogeradores, este parque enviaria diariamente para o windbox cerca de 65 mil registros. Em um ano de operação seriam cerca de 23 milhões 725 mil registro. O cenário piora quando se pensa em 10 ou 100 parques. É uma quantidade de dados muito grande e que precisa de uma solução robusta para atender a essa demanda. Pensando nisso, foi desenvolvido uma estrutura de armazenamento de dados similar ao Athenas Historian, utilizando como base o banco de dados Apache Cassandra. O Cassandra é um O banco de dados NoSql, orientado a coluna que foi originalmente desenvolvido pelo Facebook e hoje é mantido pelo Apache como uma plataforma \textit{open source}. É uma solução que foi projetada para funcionar em hardwares de baixo custo e tem como principal objetivo lidar com a alta taxa de requisições de gravação sem perder a eficiência da leitura \cite{cassandra-banco-dados}.
 
-No parágrafo anterior foi intencionalmente introduzido um erro. Note
-que o trecho de frase ``são automaticamente numeradas\dots'' tem uma
-indentação, ou seja, um espaço inicial de tabulação, como se fosse a
-primeira frase de um novo parágrafo. Na realidade, todo o texto
-anterior constitui um único parágrafo, no meio do qual se inserem as
-duas equações. Por esta razão, os trechos de frase após as equações
-não devem se iniciar com letra maiúscula nem ser indentados. É
-importante lembrar que nestas situações em que frases são
-interrompidas por equações é obrigatória a inclusão de dois pontos no
-fim dos trechos da frase, como em ``\dots Equações complexas como:'' e
-em ``ou:''.
+Uma das principais características do módulo de armazenamento é que ele pode ser constituído por diversos serviços de armazenamento de forma descentralizada, em cluster, permitindo com isso dividir a carga de processamento e armazenamento dos dados entre os nós do sistema. Esta característica distribuída permite que o sistema consiga escalar de acordo com a necessidade. A figura \ref{Fig:moduloArmazenamentoDados} ilustra a arquitetura descentralizada do Windbox.
 
-O que gerou este erro de indentação? Lembre-se que em \LaTeX\ uma
-linha em branco no código fonte indica a separação entre dois
-parágrafos. A causa do problema é a linha em branco entre o
-\verb|\end{equation}| e o \texttt{são automaticamente
-numeradas}\dots~. Como regra geral, enquanto um parágrafo não for
-encerrado, não podem ser incluídas linhas em branco, mesmo que no meio
-do parágrafo existam equações, figuras, notas de rodapé, etc.
+\begin{figure}[htbp!] \begin{center}
+\includegraphics[width=0.75\linewidth]{./figuras/arquitetura-banco-de-dados-windbox}
+\caption{Arquitetura do módulo de armazenamento de dados do Windbox}
+\label{Fig:moduloArmazenamentoDados}
+\end{center} 
+\end{figure}
 
-Pequenas expressões matemáticas como $x_0^2$ podem ser inseridas
-diretamente no texto, delimitadas por cifrões (\texttt{\$}). Deve-se
-evitar este recurso com expressões muito grandes, como
-% array é o ambiente para fazer coisas como matrizes. É muito similar
-% ao tabular, que será explicado no próximo capítulo, com a diferença
-% que os elementos do array são expressões matemáticas.
-% Para fazer uma matriz , lembre-se que o array não inclui os
-% delimitadores. No caso, nós pusemos o array dentro de delimitadores
-% \left[ e right]. Estes delimitadores desenham um colchete do tamanho
-% necessário para incluir a coisa delimitada
-$\left[\begin{array}{cc} 1 & \frac{2}{x+1} \\ -2 &
-1\end{array}\right]^{-1}$, porque o espaçamento entre as linhas fica
-prejudicado. Para incluir expressões não numeradas maiores, pode-se
-utilizar o par de delimitadores \verb|\[| e \verb|\]|, o que gera
-expressões centralizadas na página:
-\[
-% Nesta expressão nós trocamos o delimitador das matrizes, passando
-% a usar parênteses
-\left(\begin{array}{cc}
-1 & \frac{2}{x+1} \\ -2 & 1
-\end{array}\right)^{-1} = \left(\begin{array}{cc}
-\frac{x+1}{x+5} & -\frac{2}{x+5} \\ \frac{2(x+1)}{x+5} & \frac{x+1}{x+5}
-\end{array}\right) \quad
-% quad é uma das formas de incluir espaço em expressões matemáticas,
-% pois os espaços são ignorados. quad deve ser usado com moderação,
-% pois na maioria dos casos a formatação do LaTeX é a mais adequada.
-% Muitos usos de quad podem ser substituídos por ambientes de alinhamento,
-% explicados a seguir
-\text{se} \quad x \neq -1 \quad \text{e} \quad x \neq -5
-\]
+Após os dados serem armazenados no \textit{Windbox Data Base}, eles precisar ser tratados e analisados para disponibilizar os indicadores aos usuários. Essa é a função do módulo \textit{Windbox Analyse}. Desenvolvido na linguagem de programação SCALA, esse módulo tem como principal característica o rápido processamento dos dados fornecidos pelo módulo de armazenamento. Scala é uma linguagem de programação para aplicações de software em geral, que combina os paradigmas de programação orientada a objetos e funcional e que tem como uma das principais características, a facilidade de trabalhar com programação concorrente. Algumas dos indicadores fornecidas por esse módulo são: 
 
-Um erro comum em expressões matemáticas é o de digitar os nomes de
-funções diretamente, sem utilizar os comandos apropriados. Por
-exemplo, a expressão $\sin(\omega t+\phi)$ está correta, enquanto que
-a expressão $sin(\omega t+\phi)$ é interpretada pelo \LaTeX como sendo
-o produto das variáveis $s$, $i$ e $n$ pela expressão entre
-parênteses. Para as funções usuais já existem comandos predefinidos,
-como \verb|\sin|. Para suas próprias funções, utilize o comando
-\verb|\operatorname{}|, diretamente ou definindo um novo comando:
-% newcommand define novos comandos, que podem passar a ser usados da
-% mesma forma que os comandos LaTeX de base.
-\newcommand{\fat}{\operatorname{fatorial}}
-\[
-\fat(x) = x \cdot \fat(x-1)
-\]
+\begin{itemize}
+    \item Indicador de produção potencial: Indica o quanto um complexo, parque ou aerogerador deveria ter produzido de energia em um dado período.
+    \item Indicador de produção real: Indica o quanto um complexo, parque ou aerogerador produziu de energia em um dado período.
+    \item Indicador de perda de produção: Indica o quanto um complexo, parque ou aerogerador perdeu de energia em um dado período.
+    \item Indicador de disponibilidade: Indica a disponibilidade de um complexo, parque ou aerogerador em um dado período.
+    \item Indicador de disponibilidade: Indica o quanto um complexo, parque ou aerogerador deveria ter produzido de energia em um dado período.
+\end{itemize}
 
-O \LaTeX\ possui uma sintaxe específica para índices (sub-escritos) e
-expoentes (super-escritos) posicionados do lado direito do objeto a
-que se referem, mas não do lado esquerdo. Para conseguir este efeito,
-adicione índices e/ou expoentes a um bloco vazio posicionado antes do
-objeto:
-% O ambiente xalignat* é normalmente utilizado para escrever expressões
-% matemáticas multilinhas com vários pontos de alinhamento. Será detalhado
-% na próxima seção. Neste caso, está sendo usado de um modo não
-% convencional, pois se trata de uma expressão só com uma linha. O ambiente
-% xalignat* está sendo empregado aqui para espaçar igualmente os 6 ítens
-% da expressão ao longo da linha de texto.
-\begin{xalignat*}{3}
-    &w^2 &     &w_i &   {}_z&w \\
-{}^*&w   & {}_P&w^Q & {}^A_B&w^C_D
-\end{xalignat*}
+Esses são os principais indicadores fornecidos pelo Windbox. Com esses indicadores, os gestores dos parques podem visualizar as perdas que estão tendo em cada complexo, parque ou aerogerador. Identificando as perdas, o próximo passo é identificar a causa raiz responsável por isso. Para isso o Windbox fornece uma série de forma visuais de análise dos dados brutos do aerogerador, Uma dela é a visualização da curva de potência do aerogerador. Segundo \citeasnoun{tecnica-analise-dados-parque-eolico}, a análise de curva de potência é o método mais utilizado para medir o desempenho de um aerogerador. Como descrito na seção \ref{Sec:curvaDePotencia}, a curva de potência é representada pela velocidade do vento x a potência do aerogerador. Comparando a curva gerada por essas duas variáveis com a curva de referência do aerogerador, é possível verificar o comportamento do aerogerador de uma maneira geral, logo, um aerogerador que possui uma curva de potência parecida com a curva de potência garantida pelo fabricante deve estar me bom estado de funcionamento. Na figura \ref{Fig:curvaPotenciaNormal} pode ser visualizado uma curva de potência para um aerogerador com funcionamento considerado normal e na \ref{Fig:curvaPotenciaProblema} uma curva de potência para um aerogerador com funcionamento considerado anormal.
 
-\subsection{Equações}
-\label{Sec:equacoes}
+\begin{figure}[htbp!] \begin{center}
+\includegraphics[width=1\linewidth]{./figuras/curva-potencia-normal}
+\caption{Curva de potência considerada normal}
+\label{Fig:curvaPotenciaNormal}
+\end{center} 
+\end{figure}
 
-As equações são delimitadas por \verb|\begin{equation}| e
-\verb|\end{equation}|. Devem ser identificadas por um \verb|\label|
-para permitir referências futuras:
-% Nesta equação são utilizados delimitadores. Não se pode usar um
-% delimitador direito sem o esquerdo correspondente, mas os delimitadores
-% não precisam ser do mesmo tipo (posso abrir com chave e fechar com
-% colchete, por exemplo). Existe o delimitador . que é um delimitador
-% vazio. Para colocar uma barra vertical ao lado das expressões, colocamos
-% um delimitador . à esquerda e um delimitador | à direita.
-\begin{equation}
-y = g(x) = g(x_{PO}) + \left.\frac{dg}{dx}\right|_{x=x_{PO}}
-\frac{(x-x_{PO})}{1!} + \left.\frac{d^2g}{dx^2}\right|_{x=x_{PO}}
-\frac{(x-x_{PO})^2}{2!} + \cdots
-\label{Eq:Taylor}
-\end{equation}
+\begin{figure}[htbp!] \begin{center}
+\includegraphics[width=1\linewidth]{./figuras/curva-potencia-problema}
+\caption{Curva de potência considerada anormal}
+\label{Fig:curvaPotenciaProblema}
+\end{center} 
+\end{figure}
 
-Devem-se evitar referências com expressões do tipo ``a equação acima''
-e ``a próxima equação'', pois modificações no texto podem tornar a
-referência inválida. Use sempre referências pelo rótulo
-(\texttt{label}), como em ``a equação~\ref{Eq:Taylor}'', mesmo para
-equações próximas.
+Para que seja possível visualizar os dados disponibilizados pelo módulo \textit{Windbox Analyse}, o usuário conta com o módulo web. Esse módulo é responsável por organizar em \textit{dashboards} os gráficos com os indicadores e fornece ao usuário 3 níveis para visualização: complexo, parque e aerogerador. Isso possibilita que o gestor possa navegar entre uma análise macro da produção até uma micro. Nas figuras \ref{Fig:visualizaçãoNivelComplexoEolico}, \ref{Fig:visualizaçãoNivelParqueEolico}, \ref{Fig:visualizaçãoNivelAerogerador}, são demonstrados alguns indicadores nos três níveis de visualização.
 
-Existem vários ambientes para escrever equações, como o \verb|cases|
-para construir expressões condicionais:
-\begin{equation}
-f(x) = 1+\begin{cases}
-0   & \text{se $x=0$}\\
-1/x & \text{caso contrário}
-\end{cases} + \begin{cases}
-x/2             & \text{se $x$ é inteiro e par}\\
-\frac{x+1}{2}   & \text{se $x$ é inteiro e ímpar}\\
-\frac{x+0.5}{2} & \text{se $x$ não é inteiro}
-\end{cases}
-\end{equation}
+\begin{figure}[htbp!] \begin{center}
+\includegraphics[width=1\linewidth]{./figuras/tela-complexo}
+\caption{Visualização do Windbox a nível de complexo eólico}
+\label{Fig:visualizaçãoNivelComplexoEolico}
+\end{center} 
+\end{figure}
 
-\subsection{Expressões multilinhas}
-\label{Sec:multilinhas}
+\begin{figure}[htbp!] \begin{center}
+\includegraphics[width=1\linewidth]{./figuras/tela-parque}
+\caption{Visualização do Windbox a nível de parque eólico}
+\label{Fig:visualizaçãoNivelParqueEolico}
+\end{center} 
+\end{figure}
 
-O pacote \texttt{amstex} define vários ambientes para criar expressões
-matemáticas que ocupam mais de uma linha. Existem versões dos
-ambientes com e sem inclusão do número na equação, conforme indicado
-na tabela~\ref{Tab:multilinhas}\footnotemark.
-% A explicação sobre o comando \footnotemark está logo mais à frente
-% no texto
+\begin{figure}[htbp!] \begin{center}
+\includegraphics[width=1\linewidth]{./figuras/tela-aerogerador}
+\caption{Visualização do Windbox a nível de aerogerador}
+\label{Fig:visualizaçãoNivelAerogerador}
+\end{center} 
+\end{figure}
 
-\begin{table}[htbp]
-\begin{center}
-\newlength{\LL}
-\settowidth{\LL}{Tipo de alinhamento}
-\begin{tabular}{|>{\tt}l|>{\tt}l|l|} \hline
-\multicolumn{2}{|c|}{PACOTE} &
-\multicolumn{1}{c|}{\multirow{2}{\LL}{Tipo de alinhamento}}
-\\ \cline{1-2}
-\textrm{Com número} & \textrm{Sem número} &  \\ \hline
-gather & gather* & sem alinhamento (só múltiplas linhas) \\
-multiline & multline* & quebra de equação em várias linhas \\
-align & align* & alinhamento em um único ponto \\
-alignat & alignat* & alinhamento em vários pontos, no centro da linha\\
-xalignat & xalignat* & vários pontos, ocupando toda a linha (com margens)\\
--- & xxalignat & vários pontos, ocupando toda a linha (sem margens)
-\\ \hline
-\end{tabular}
-\end{center}
-\caption{Os ambientes para geração de equações multilinhas}
-\label{Tab:multilinhas}
-\end{table}
+Na figura \ref{Fig:arquiteturaWindbox}, é demonstrado a arquitetura em camadas do Windbox. O protocolo de comunicação entre uma camada e outra muda de acordo com a necessidade. 
 
-Para os ambientes \texttt{alignat}, \texttt{xalignat} e
-\texttt{xxalignat} existe um parâmetro obrigatório que é o número de
-elementos em cada linha. Cada elemento tem um ponto de alinhamento com
-os outros elementos da mesma coluna em outras linhas.  Cada elemento é
-separado do próximo por um \texttt{\&}. Dentro de cada elemento, um
-novo \texttt{\&} marca seu ponto de alinhamento, conforme o exemplo da
-tabela \ref{Tab:exemplomultilinhas}, onde se vê o código fonte e o
-resultado produzido.
+\begin{figure}[htbp!] \begin{center}
+\includegraphics[width=0.75\linewidth]{./figuras/arquitetura-windbox}
+\caption{Arquitetura em camadas do Windbox}
+\label{Fig:arquiteturaWindbox}
+\end{center} 
+\end{figure}
 
-% Este table não contém um tabular, mas sim uma frase composta por
-% dois minipages. Maiores detalhes sobre tables, tabulars, etc. no
-% capítulo seguinte.
-\begin{table}[htbp] \begin{center}
-\hrule
-% O ambiente minipage cria uma micropágina com a dimensão especificada
-% e que se comporta exatamente como a página real, porém com dimensões
-% reduzidas. Ela pode ser incluída em praticamente todo outro ambiente
-% e no meio de frases.
-\begin{minipage}[c]{0.3\linewidth}
-\tiny
-% O ambiente verbatim põe na tela o texto exatamente como foi digitado.
-% Muito útil para incluir código fonte, como neste caso.
-\begin{verbatim}
-\begin{xxalignat}{3}
-&aaaa  &  mm&mm  &  cccc& \\
-xxxx&  &  ii&ii  &  llll&
-\end{xxalignat}
-\end{verbatim}
-\end{minipage}
-% para uma minipage ficar à esquerda e a outra à direita vamos
-% incluir entre elas dois espaços horizontais \hfill, que são espaços
-% que "esticam" até ocupar a máxima largura possível.
-\hfill
-$\implica$
-\hfill
-\begin{minipage}[c]{0.3\linewidth}
-\begin{xxalignat}{3}
-% A primeira coluna alinha o início de um com o fim do outro
-% A segunda coluna alinha os dois pelo meio
-% A terceira coluna alinha os dois pelo fim
-&aaaa  &  mm&mm  &  cccc& \\
-xxxx&  &  ii&ii  &  llll&
-\end{xxalignat}
-\end{minipage}
-\hrule
-\caption{Exemplo de equação multilinha com vários pontos de alinhamento}
-\label{Tab:exemplomultilinhas}
-\end{center}\end{table}
+Após a coleta pelo \textit{Windbox Collector}, o dado é enviado para o módulo \textit{Windbox Data Base} através do protocolo de comunicação \textit{Protobuf}. O \textit{Protobuf} é um protocolo criado pelo Google para serializar dados estruturados, independente de plataforma \cite{protobuf-google}. O grande motivo do Windbox estar utilizando esse protocolo para comunicação é que, segundo \citeasnoun{protobuf-dzone}, ele pode ser até 10 vezes mais rápido que o JSON. Como a quantidade de dados trafegado por esse módulo é alta, justifica essa necessidade. Após o envio do dado para o \textit{Windbox Data Base}, este dado fica disponível para o \textit{Windbox Analyse} realizar consultas. Mas uma vez se fez necessário o uso do \textit{Protobuf}, já que a quantidade de dados enviados para o módulo de análise é muito grande e necessita-se de um protocolo com ótimo desempenho.
 
-Os ambientes da tabela~\ref{Tab:multilinhas} funcionam como um
-ambiente \texttt{equation}: ocupam toda a linha e centralizam a
-expressão.  Em algumas situações, entretanto, se deseja incluir um
-sub-ambiente multilinhas dentro de uma expressão mais geral. Para
-isto, o \texttt{amstex} fornece as opções listadas na
-tabela~\ref{Tab:submultilinhas}\addtocounter{footnote}{-1}\footnotemark.
-% Para inserir uma nota de rodapé, pode-se utilizar o comando \footnote,
-% que já insere a marca e o texto. Em algumas situações, entretanto, é
-% preciso utilizar um comando para a marca (\footnotemark) e outro para
-% o texto (\footnotetext). Uma das situações onde isto é necessário é
-% o caso deste exemplo, onde queremos que duas marcas se refiram ao
-% mesmo texto.
-% O comando \footnotemark incrementa o contador das marcas de rodapé,
-% de modo que o primeiro \footnotemark imprimirá a marca 1, o segundo a
-% marca 2, etc. Para contornar este incremento automático, nós
-% decrementamos o contador de uma unidade antes da segunda chamada.
+Para que os dados brutos dos aerogeradores são analisados cada vez que um usuário requisita tal ação por meio de um componente gráfico no \textit{Windbox Web}. Essa requisição é enviada para o \textit{Windbox API} por meio de um \textit{WebSocket}. \textit{WebSocket} é uma tecnologia que torna possível abrir uma sessão de comunicação interativa ente o navegador do usuário e um servidor (no caso o \textit{Windbox API}). Com isso o \textit{Windbox Web} envia mensagens para o \textit{Windbox API} e recebe a resposta orientada ao evento de fim de processamento da análise de forma assíncrona. Dessa forma, cada componente gráfico de análise é carregado de forma independente. 
 
-% Agora vai o texto da nota de rodapé. Ele é associado à marca do
-% último \footnotemark. O comando \footnotetext não incrementa o
-% contador de notas de rodapé.
-\footnotetext{Nestas tabelas foram utilizadas extensões do ambiente
-\texttt{tabular} fornecidas pelo pacote \texttt{tabularx}. Esta
-extensões serão explicadas no capítulo \ref{Cap:Problema}}
+Com a requisição de análise feita para no \textit{Windbox API}. Este por sua vez tem a responsabilidade de estruturar as informações necessárias para realizar a consulta dos indicadores no \textit{Windbox Analyse}. Após isso a consulta é feita através do uso do serviço de mensageria denominado \textit{RabbitMQ}. Essa tecnologia utiliza o AMQP (\textit{Advanced Message Queuing Protocol}) como protocolo de comunicação e ajuda o Windbox a organizar as requisições assíncronas entre os dois módulos.
 
-\begin{table}[htbp]
-\begin{center}
-\begin{tabular}{|>{\tt}l|l|} \hline
-% Estes multicolumn's que abranjem uma única coluna são utilizados para
-% mudar o tipo de alinhamento. Por default, a primeira coluna é alinhada
-% à esquerda (l). Usando o multicolumn, consegue-se que apenas o elemento
-% na linha em questão fique centralizado (c).
-\multicolumn{1}{|c|}{PACOTE} &
-\multicolumn{1}{c|}{Tipo de alinhamento}
-\\ \hline
-gathered & sem alinhamento (só múltiplas linhas) \\
-aligned & alinhamento em um único ponto \\
-alignedat & alinhamento em vários pontos
-\\ \hline
-\end{tabular}
-\end{center}
-\caption{Os ambientes para geração de trechos multilinhas em equações}
-\label{Tab:submultilinhas}
-\end{table}
+O Windbox foi estruturado em múltiplos serviços por vários motivos. Alguns deles são: 
 
-A equação \ref{Eq:alinhamento} ilustra a utilização de ambientes
-\texttt{aligned} inseridos dentro de um ambiente \texttt{alignat}.
-Nos ambientes multilinhas numerados cada linha terá seu próprio número
-e deverá receber seu próprio rótulo (\texttt{label}), exceto caso se
-informe explicitamente que a linha não deverá ser numerada, usando o
-comando \verb|\nonumber|.
+\begin{itemize}
+    \item Possibilidade de utilizar várias linguagens de programação: Cada serviço do Windbox é desenvolvido em uma linguagem de programação diferente. Cada uma tem o proposito de ter sido escolhida.
+    \item Facilidade no deploy: Somente o serviço que foi aprimorado precisa ser publicado.
+    \item Facilidade na escalabilidade: Como a aplicação é dividida em várias partes, é possível aprimorar e expandir somente um componente que esteja tendo maior demanda.
+\end{itemize}
 
-\begin{alignat}{3}
-% Primeira linha do alignat (não numerada)
-% Primeiro elemento do alignat (inclui um aligned) - alinha no fim
-\left\{\begin{aligned} % Alinha no sinal de =
-\dot{\mathbf{x}}(t) &= \mathsf{A}\mathbf{x}(t)+\mathsf{B}\mathbf{u}(t) \\
-\mathbf{y} &= \mathsf{C}\mathbf{x}(t)+\mathsf{D}\mathbf{u}(t)
-\end{aligned}\right.&
-% Note que o aligned é envolvido por dois delimitadores diferentes:
-% uma chave (\left\{) no lado esquerdo e um vazio (\right.) no direito
-&
-% Segundo elemento do alignat (só uma seta) - alinha no início
-&\implica
-&
-% Terceiro elemento do alignat (inclui um aligned) - alinha no início
-&\left\{\begin{aligned} % Alinha no sinal de =
-s\mathbf{X}(s)-\mathbf{x}(0)&=\mathsf{A}\mathbf{X}(s)+\mathsf{B}\mathbf{U}(s)\\
-\mathbf{Y}(s) &= \mathsf{C}\mathbf{X}(s)+\mathsf{D}\mathbf{U}(s)
-\end{aligned}\right.\implicafim
-\nonumber
-\\
-% Segunda linha do alignat (numerada)
-% Primeiro elemento do alignat (inclui um aligned) - alinha no fim
-\left\{\begin{aligned} % Alinha no sinal de =
-\mathbf{X}(s) &= \Phi(s)\mathbf{x}(0) + \Phi(s)\mathsf{B}\mathbf{U}(s) \\
-\mathbf{Y}(s) &= \mathsf{C}\mathbf{X}(s)+\mathsf{D}\mathbf{U}(s)
-\end{aligned}\right.&
-&
-% Segundo elemento do alignat - alinha no início
-&\quad \text{onde} \quad
-&
-% Terceiro elemento do alignat - alinha no início
-&\Phi(s) = (s\mathsf{I}-\mathsf{A})^{-1}
-\label{Eq:alinhamento}
-\end{alignat}
+Dentre as ferramentas utilizadas no desenvolvimento do Windbox, é importante destacar: \textit{Scrum} \cite{agile-project-scrum} e o \textit{Kamban} \cite{kamban-scrum}.
+
+O \textit{Scrum} é uma metodologia ágil para gestão e planejamento de projetos de software. Para ter mais agilidade, o Windbox utiliza esta metodologia em todas as atividades do projeto. Dessa forma, o andamento do projeto passa a ser dividido em ciclos (\textit{Sprints}), cuja duração varia entre 14 e 21 dias. Na criação de cada \textit{Sprint} são utilizadas as atividades selecionadas pelo Time \textit{Scrum} e o \textit{Product Owner} (figura que representa o dono do produto), formando assim o \textit{Sprint Backlog}. Estas atividades fazem parte do \textit{Product Backlog}, conjunto de funcionalidades a serem implementadas no projeto. Ao final de cada dia da \textit{Sprint} a equipe faz uma breve reunião chamada de \textit{Daily Scrum}. Nessa reunião é disseminado o conhecimento do que foi feito no dia anterior e retirado empecilhos que possam prejudicar o trabalho do dia atual. Ao final da \textit{Sprint} ocorre a \textit{Sprint Review}, no qual a equipe apresenta as funcionalidades implementadas na \textit{Sprint} e após isso parte para o planejamento da próxima. Na figura \ref{Fig:cicloScrum} pode ser visualizado o ciclo de vida do \textit{Scrum}.
+
+\begin{figure}[htbp!] \begin{center}
+\includegraphics[width=0.75\linewidth]{./figuras/scrum-diagrama}
+\caption{Ciclo de vida do \textit{Scrum}}
+\label{Fig:cicloScrum}
+\legend{Fonte: \cite{desenvolvimento-agil}}
+\end{center} 
+\end{figure}
+
+Já o \textit{Kanbam} é um quadro onde ficam anotadas as tarefas a serem realizadas. Para o Windbox, ele foi dividido em quatro categorias: tarefas a fazer, tarefas em execução, tare prontas para teste e tarefas concluídas. Conforme as tarefas vão sendo realizadas, os responsáveis vão mudando a posição no quadro. Dessa forma todo o time consegue observar rapidamente o que está sendo feito e o que está pendente.
+
+\section{Modelo de Negócio}
+\label{Sec:modeloDeNegocio}
+
+Resolver problemas de engenharia de maneira inovadora é um aspecto crucial no ciclo de vida de um produto, mas encontrar um modelo de negócio que atenda e o torne viável é o diferencial que permite realmente entregar valor para a sociedade.
+
+A expressão "modelo de negócio começou a ser utilizada com frequência, principalmente, após o surgimento dos negócios baseados na internet. O modelo de negócio descreve a lógica de criação, entrega e captura de valor, por parte de uma organização \cite{business-model-generation}. O BMC (\textit{Business Model Canvas}), é um mapa visual que contém nove blocos com os principais elementos de um modelo de negócio. As nove áreas são:
+
+\begin{itemize}
+    \item Segmentos de clientes: Define qual é o mercado e o nicho de cliente da oferta de valor.
+    \item Oferta de valor: Define qual é o benefício ou valor entregue ao segmento de cliente.
+    \item Canais de vendas: Define como a empresa se comunica e entrega valor aos clientes.
+    \item Relacionamento com o cliente: Define quais são as estratégias necessárias para fidelizar os clientes.
+    \item Fonte de receitas: Define quanto e como os clientes irão pagar pelos benefícios recebidos.
+    \item Recursos chaves: Define quais os ativos fundamentais para o modelo de negócio funcione.
+    \item Atividades chave: Define quais as atividades mais importantes para a realização do negócio.
+    \item Parceiros chave: Define as empresas que ajudaram a entregar a oferta de valor.
+    \item Fonte de custos: Define os custos que estão envolvidos na operação do negócio.
+\end{itemize}
+
+O BMC da Windbox pode ser visualizado na figura \ref{Fig:bmc-windbox}. Como já foi dito anteriormente, a proposta de valor do Windbox é auxiliar gestores na identificação de problemas na produção dos parques eólicos. O segmento de clientes se restringe inicialmente aos parques eólicos no Brasil. Futuramente, quando o produto estiver consolidado em território nacional, poderá ser comercializado internacionalmente. A principal forma de contato com esses clientes é através de telefonemas e nos principais eventos de energia eólica do país. O licenciamento mensal ou anual da ferramenta é a principal fonte de receita da empresa, que possui como maior fonte de custo a infraestrutura em nuvem que hospeda a solução e recursos humanos. Como a ferramenta está em fase de pre-venda, a maior parte dos custos é mantido por dois parceiros, o BNB e o CNPq, através de fomento, como já foi abordado anteriormente.
+
+\begin{figure}[htbp!] \begin{center}
+\includegraphics[width=1\linewidth]{./figuras/BMG}
+\caption{\textit{Business Model Canvas} do Windbox}
+\label{Fig:bmc-windbox}
+\end{center} 
+\end{figure}
+
+Para compreender mais profundamente a proposta de valor e o segmento de cliente do Windbox, foi utilizado a ferramenta "Canvas de proposta de valor", dos mesmos autores do BMC. O Canvas de proposta de valor funciona como uma especie de detalhamento dos blocos de segmentos de clientes e de proposta de valor do \textit{Business Model Canvas}. A sua principal função é ajudar na compreensão e se aprofundar mais nesses dois blocos chaves do negócio.
+
+O canvas é dividido em dois lados, esquerdo e direito. O lado esquerdo está o mapa de valor, que descreve os aspectos de uma proposta de valor especifica criada por uma empresa. Já do lado direito, está o perfil do cliente, que descreve o segmento de cliente específico.
+
+A figura \ref{Fig:mapa-valor-canvas} demonstra o lado esquerdo (mapa de valor). Ela é dividida em:
+\begin{itemize}
+    \item Produtos e Serviços: Define todos os produtos e serviços em torno dos quais a proposta de valor é construída.
+    \item Analgésicos: Descreve como os produtos ou serviços aliviam a dor do cliente.
+    \item Criadores de ganhos: Descreve como os produtos ou serviços geram ganhos para o cliente.
+\end{itemize}
+
+\begin{figure}[htbp!] \begin{center}
+\includegraphics[width=1\linewidth]{./figuras/Mapa-de-Valor-Canvas-de-Proposta-de-Valor}
+\caption{Demonstração do mapa de valor}
+\label{Fig:mapa-valor-canvas}
+\end{center} 
+\end{figure}
+
+A figura \ref{Fig:perfil-cliente-canvas} demonstra O lado direito (perfil do cliente). Ela é dividida em: 
+\begin{itemize}
+    \item Tarefas do cliente: Descreve o que os clientes estão tentando fazer no seu trabalho ou na sua vida.
+    \item Dores: Descreve os resultados ruins, os riscos e os obstáculos do cliente.
+    \item Ganhos: Descreve os resultados que os clientes querem encontrar.
+\end{itemize}
+
+\begin{figure}[htbp!] \begin{center}
+\includegraphics[width=1\linewidth]{./figuras/Perfil-do-Clientes-Canvas-de-Proposta-de-Valor}
+\caption{Demonstração do perfil do cliente}
+\label{Fig:perfil-cliente-canvas}
+\end{center} 
+\end{figure}
+
+Na figura \ref{Fig:canvas-valor-windbox} é demonstrado o canvas de valor do Windbox.
+
+\begin{figure}[htbp!] \begin{center}
+\includegraphics[width=1\linewidth]{./figuras/canvas-de-valor}
+\caption{Canvas de valor do Windbox}
+\label{Fig:canvas-valor-windbox}
+\end{center} 
+\end{figure}
