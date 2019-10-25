@@ -8,6 +8,11 @@
 \section{Contextualização e problema}
 \label{contextualização}
 
+%%adicionar arquitetura do historian
+%%adicionar imagen do scada
+
+
+
 % Falar um pouco sobre o cenário mundial de eólica
 
 % Falar sobre o problema com desempenho das máquinas
@@ -18,14 +23,15 @@
 
 % Falar do valor agregado
 
-O setor energético é o principal insumo dos mais variados setores da economia, sendo item fundamental para o desenvolvimento econômico e social. Para que este setor consiga acompanhar e alavancar os avanços da sociedade, devemos investir cada vez mais em desenvolvimento de novas tecnologias, bem como aumentar o acesso da sociedade às fontes mais eficientes e limpas de energia.
+A energia elétrica é o principal insumo dos mais variados setores da economia, sendo item fundamental para o desenvolvimento econômico e social. Para que este setor consiga acompanhar e alavancar os avanços da sociedade, devemos investir cada vez mais em desenvolvimento de novas tecnologias, bem como aumentar o acesso da sociedade às fontes mais eficientes e limpas de energia.
 
-A energia eólica é vista como uma das mais promissoras fontes de energia, pela sua crescente utilização e investimentos, tendo apresentado nos últimos anos uma evolução exponencial da capacidade eólica instalada. Atualmente os países lideres em geração de energia eólica são, China, Estados Unidos da América e Alemanha. Em 2010 a China tornou-se o país com a maior capacidade instalada no mundo, sendo atualmente responsável por 35\% do total da capacidade instalada, seguida pelos Estados Unidos, que possuem 17\% do total \cite{global-wind-energy}. Na figura \ref{Fig:ranking-mundial-capacidade-instalada} é demonstrado o ranking mundia de capacidade instalada, no qual o Brasil ocupa a 8ª posição.
+A energia eólica é vista como uma das mais promissoras fontes de energia, pela sua crescente utilização e investimentos, tendo apresentado nos últimos anos uma evolução exponencial da capacidade eólica instalada. Atualmente os países lideres em geração de energia eólica são, China, Estados Unidos da América e Alemanha. Em 2010 a China tornou-se o país com a maior capacidade instalada no mundo, sendo atualmente responsável por 35\% do total da capacidade instalada, seguida pelos Estados Unidos, que possuem 17\% do total \cite{global-wind-energy}. Na figura \ref{Fig:ranking-mundial-capacidade-instalada} é demonstrado o ranking mundial de capacidade instalada, no qual o Brasil ocupa a 8ª posição.
 
 \begin{figure}[htbp!] \begin{center}
 \includegraphics[width=0.75\linewidth]{./figuras/grafico-capacidade-instalada-mundo}
 \caption{Ranking mundia de capacidade instalada}
 \label{Fig:ranking-mundial-capacidade-instalada}
+\legend{Fonte: \cite{global-wind-energy}}
 \end{center} 
 \end{figure}
 
@@ -37,6 +43,7 @@ Em 2017 foram instalados no país 6,84 GW de potência, considerando todas as fo
 \includegraphics[width=0.65\linewidth]{./figuras/matriz-energetica-brasileira}
 \caption{Matriz energética brasileira}
 \label{Fig:matriz-energetica-brasileira}
+\legend{Fonte: \cite{boletim-anual-geracao-2017}}
 \end{center} 
 \end{figure}
 
@@ -45,8 +52,6 @@ Sendo um dos países que mais investe em energia eólica no mundo, o Brasil tamb
 O crescimento da utilização da força dos ventos para a produção de energia atribui-se principalmente ao desenvolvimento tecnológico no setor, que elevou a competitividade em relação ao preço, quando comparado com outras fontes geradoras de energia elétrica \cite{matrizes-energeticas-brasil}. Entretanto, a implantação de parques eólicos ainda exige um alto nível de investimento. Com o crescimento do mercado e da concorrência, o valor de remuneração obtido nesses empreendimentos tem sido cada vez menor, fazendo com que os investidores não possam tolerar qualquer problemas no desempenho dos aerogeradores e buscar ao máximo reduzir os riscos associados ao negócio.
 
 Monitorar continuamente o funcionamento de um parque eólico permite ao gestor de um parque eólico uma visão mais ampla do que esta acontecendo na sua produção. O maior benefício que isso pode trazer é detectar desempenhos insatisfatórios, identificar e corrigir os problemas que causaram esses desvios e com isso, evitar perdas na receita. Além disso, o conhecimento e os ensinamentos adquiridos ao longo do monitoramento podem ser de grande utilidade no projeto, na construção e na operação de outros parques.
-
-O contributo social desta pesquisa é fornecer uma ferramenta que irá possibilitar o monitoramento contínuo de parques eólicos, visando o aumento da eficiência desses parques, conferindo, consequentemente, maior competitividade para a fonte eólica frente às demais fontes de geração, o que pode estimular a modicidade tarifária, a qual preconiza o consumo de energia mais barata para o cidadão brasileiro. Além disso, incentivar a expansão de fontes renováveis de energia, que não agridem o meio ambiente, é contribuir para o bem-estar humano.
 
 % Focar mais no problema
 
@@ -84,7 +89,6 @@ Os Sistemas SCADA (Supervisory Control and Data Aquisition), ou sistemas supervi
 
 Os sistemas supervisórios são essenciais para o funcionamento de um parque eólico. Através deles os operadores conseguem controlar e armazenar os dados dos aerogeradores, torres anemométricas e subestações. Dentre os dados armazenados pelo sistema SCADA são encontrados informações da potência, da velocidade do vento na nacele, a orientação da nacele, temperaturas, pressões, entre outros. A partir desses dados contidos no SCADA é possível identificar falhas, calcular a quantidade de energia gerada, ter acesso a disponibilidade dos aerogeradores, etc.
 
-
 \subsubsection{Curva e coeficiente de potência}
 \label{Sec:curvaDePotencia}
 
@@ -93,12 +97,12 @@ A potência de uma turbina eólica varia de acordo com a velocidade do vento e c
 Nas curvas de potência de um aerogerador estão definidas 3 zonas importantes:
 
 \begin{itemize}
-  \item \textit{Cut-in:} Representa a zona de arranque do aerogerador. Geralmente entre 2 e 4 m/s. Abaixo dessa velocidade não interessa extrair energia.
-  \item \textit{Velocidade nominal:} Velocidade de vento que permite obter uma potência próxima da nominal. Normalmente entre 12 e 15 m/s
-  \item \textit{Cut-out:} Velocidade de vento que o aerogerador é desligado por questões de segurança relacionadas a esforços mecânicos a que fica sujeito. Geralmente para velocidades de vento superiores a 25 m/s
+  \item \textbf{\textit{Cut-in:}} Representa a zona de arranque do aerogerador. Geralmente entre 2 e 4 m/s. Abaixo dessa velocidade não interessa extrair energia.
+  \item \textbf{\textit{Velocidade nominal:}} Velocidade de vento que permite obter uma potência próxima da nominal. Normalmente entre 12 e 15 m/s
+  \item \textbf{\textit{Cut-out:}} Velocidade de vento que o aerogerador é desligado por questões de segurança relacionadas a esforços mecânicos a que fica sujeito. Geralmente para velocidades de vento superiores a 25 m/s
 \end{itemize}
 
-A quantidade de potência disponível no vento que pode ser convertida em potência mecânica por um aerogerador, é chamado de coeficiente de potência ($c_p$). Esse coeficiente indica é utilizado para comparar a eficiência entre diferentes aerogeradores. Na figura \ref{Fig:ilustracaoCurvaPotencia} é demonstrado o gráfico com a curva e o coeficiente de potência de um aerogerador. 
+A quantidade de potência disponível no vento que pode ser convertida em potência mecânica por um aerogerador, é chamado de coeficiente de potência ($c_p$). Esse coeficiente é utilizado para comparar a eficiência entre diferentes aerogeradores. Na figura \ref{Fig:ilustracaoCurvaPotencia} é demonstrado o gráfico com a curva e o coeficiente de potência de um aerogerador. 
 
 \begin{figure}[htbp!] \begin{center}
 \includegraphics[width=0.75\linewidth]{./figuras/curva-potencia-wobben}
@@ -113,7 +117,7 @@ A quantidade de potência disponível no vento que pode ser convertida em potên
 
 O risco de um investimento em um parque eólico esta fortemente atrelado as diferenças entre a produção efetiva e a produção estimada durante a elaboração do projeto. A partir disso surge a necessidade do acompanhamento do funcionamento dos parques eólicos para que seja garantido o bom desempenho dos aerogeradores.
 
-A metodologia aplicada para o acompanhamento do desempenho dos parques, na maioria das vezes está prevista no contrato entre a empresa dona do parque eólico e a empresa fabricante dos aerogeradores e nesse caso essa verificação assume também um caráter de garantia no qual eventuais desvios podem originar penalizações, caso o desempenho seja abaixo do contratual.
+A metodologia aplicada para o acompanhamento do desempenho dos parques, na maioria das vezes está prevista no contrato entre a empresa dona do parque eólico e a empresa fabricante dos aerogeradores, e nesse caso, essa verificação assume também um caráter de garantia no qual eventuais desvios podem originar penalizações, caso o desempenho seja abaixo do contratual.
 
 A grande maioria dos contratos entre os fabricantes e os parques eólicos levam em consideração a disponibilidade dos aerogeradores como parâmetro para acompanhamento do desempenho. Esse indicador não é efetivo para medir o desempenho e sim apenas uma contabilização do tempo em que as máquinas estiveram em operação ou em condições de operação. É um conceito que não permite saber se foi produzido toda a energia que poderia ter sido produzida para as condições de vento verificadas.
 
@@ -127,7 +131,7 @@ O desempenho de um aerogerador depende essencialmente da sua curva de potência 
 Como mencionado anteriormente, a curva de potência de um aerogerador é uma curva característica que expressa a potência gerada em função da velocidade do vento. Essa ferramenta é essencial para avaliação de desempenho de um aerogerador, tanto para previsão de produção, como para avaliação dos resultados obtidos. Entretanto, a curva de potência garantida pelo fabricante de aerogerador e a curva obtida com a turbina em funcionamento nem sempre são iguais. Além do local onde é feita a garantia da curva de potência e do local onde opera o aerogerador serem diferentes, existem outras razões pelas quais podem existir desvios no comportamento da curva de potência. Algumas razões são:
 
 \begin{itemize}
-  \item \textbf{Turbulência:} Pode ser definida como alterações na média da velocidade do vento em curtos períodos de tempo (ordem de segundos ou menos). Normalmente é gerada por conta da fricção com a superfície, causado pela topografia, e efeitos térmicos, por conta da variação da temperatura.
+  \item \textbf{Turbulência:} Pode ser definida como alterações na média da velocidade do vento em curtos períodos de tempo (ordem de segundos ou menos). Normalmente é gerada por conta da fricção com a superfície, causada pela topografia, e efeitos térmicos, por conta da variação da temperatura.
   \item \textbf{Efeito esteira:} Uma vez que a turbina eólica produz energia mecânica a partir da energia do vento incidente, o vento que "sai" da turbina tem um conteúdo energético muito menor que o do vento que "entrou". Pode ser definida como alterações na média da velocidade do vento que passou pelo rotor, podendo diminuir até um terço da velocidade inicial, formando uma esteira de vento turbulento. O diâmetro da esteira aumenta conforme o vento se afasta do rotor e se dissolve com uma distância média de 10 diâmetros do rotor.
   \item \textbf{Operação com limitação de potência:} Toda as turbinas são desenvolvidas com algum sistema de controle de potência. Para evitar danos ao equipamento é necessário limitar a potência mecânica do aerogerador durante ventos com velocidade acima da velocidade nominal de operação. Caso essa limitação de potência ocorrer por um longo período de tempo, trará prejuízos consideráveis ao parque eólico.
   \item \textbf{Deterioração e danificação nas pás:} A função das pás é converter, através da força de sustentação, a energia cinética do vento em energia mecânica. O seu desenho é feito para converter o máximo de energia possível, logo, o desgaste desta ao longo do tempo claramente afeta o desempenho aerodinâmico, afetando a sustentação gerada e consequentemente a potência retirada.
@@ -152,7 +156,7 @@ A definição das metodologias usadas para estimar a energia não produzida em c
 
 O retorno financeiro de um parque eólico esta diretamente relacionado com o seu desempenho, uma vez que o bom desempenho está relacionado a maximização da energia produzida e assim, em consequência, a remuneração devida.
 
-O impacto do mau desempenho de um parque eólico ou de um ou mais dos aerogeradores que o constituem, pode afetar consideravelmente a o retorno financeiro de um projeto. Monitorar continuamente a produção de um parque eólico é uma das formas de identificar desvios e comportamentos inesperados nos aerogeradores. Esta é uma metodologia que esta fora do domínio de qualquer contrato entre o proprietário e o parque. É uma iniciativa dos proprietários de alguns parques, que tem como principal ideia de compreender melhor o comportamento das suas turbinas e, dessa forma, se colocar em posição de discutir com os fabricantes eventuais desvios na operação \cite{metodologia-avaliacao-desempenho-de-parques}.
+O impacto do mau desempenho de um parque eólico ou de um ou mais dos aerogeradores que o constituem, pode afetar consideravelmente a o retorno financeiro de um projeto. Monitorar continuamente a produção de um parque eólico é uma das formas de identificar desvios e comportamentos inesperados nos aerogeradores. Esta é uma metodologia que esta fora do domínio de qualquer contrato entre o proprietário e o parque. É uma iniciativa dos proprietários de alguns parques, que tem como principal ideia, compreender melhor o comportamento das suas turbinas e, dessa forma, se colocar em posição de discutir com os fabricantes eventuais desvios na operação \cite{metodologia-avaliacao-desempenho-de-parques}.
 
 A principal ideia de monitorar continuamente o funcionamento de um parque eólico é caracterizar o comportamento dos aerogeradores, através da grande quantidade de informações, principalmente proveniente dos sistemas SCADA, para detectar quedas de desempenho das máquinas.
 
@@ -168,7 +172,7 @@ Alguns dados que são comumente analisados são:
     \item Alarmes e eventos registrados;
 \end{itemize}
 
-Analisar, interpretar e validar toda a informação disponibilizada pelos aerogeradores de um parque (normalmente com uma amostragem de 10 minutos), é um trabalho muito analítico e que demanda experiência por parte da equipe responsável. Por esse motivo torna-se necessário o uso de um software especialista, que possa tornar esse processo o mais automático e confiável possível, entregando como resultado gráficos que permitam a detecção de anomalias e facilite a comparação do funcionamento entre os aerogeradores.
+Analisar, interpretar e validar toda a informação disponibilizada pelos aerogeradores de um parque (normalmente com uma amostragem de 10 minutos), é um trabalho muito analítico e que demanda experiência por parte da equipe responsável. Por esse motivo torna-se necessário o uso de um software especialista, que possa tornar esse processo o mais automático e confiável possível, entregando como resultado, gráficos que permitam a detecção de anomalias e facilite a comparação do funcionamento entre os aerogeradores.
 
 \section{Histórico}
 \label{Sec:historico}
@@ -185,7 +189,7 @@ Neste tópico será abordado um breve histórico da trajetória da solução abo
 
 Em 2013 foi fundada a LogAp Sistemas, empresa potiguar que nasceu com o intuito de prover soluções inovadoras para a industria, antes mesmo do conceito de indústria 4.0 se tornar popular. A empresa foi criada por quatro engenheiros de computação, que visavam prover soluções em tecnologia da informação com foco na gestão de produção de indústrias de processos. O principal produto da empresa, na época era um historiador de dados industriais, ou como é conhecido, sistema PIMS - \textit{Plant Information Management Systems}.
 
-Os primeiros sistemas PIMS começaram a surgir no início da década de 1980. Durante todos esses anos que se passaram, esses tipos de sistemas passaram por diversas evoluções, juntamente com as próprias indústrias em si. Entretanto, a grande maioria das soluções disponíveis no mercado não acompanhou de fato a evolução da tecnologia dos dias de hoje, transformando-se em sistemas legados. Além disso, atualmente, estamos vivenciando uma nova revolução industrial, onde são gerados dados pelos mais diversos tipos de equipamentos e sistemas e esses dados são o centro dessa transformação. A centralização dos dados que antes era limitada apenas aos equipamentos e sistemas de uma indústria, agora chega ao cenário da necessidade de integrar diversas plantas e industrias diferentes possibilitando análises mais integradas \cite{gerencia-processo-automacao}.
+Os primeiros sistemas PIMS começaram a surgir no início da década de 1980. Durante todos esses anos que se passaram, esses tipos de sistemas passaram por diversas evoluções, juntamente com as próprias indústrias em si. Entretanto, a grande maioria das soluções disponíveis no mercado não acompanhou de fato a evolução da tecnologia dos dias de hoje, transformando-se em sistemas legados. Além disso, atualmente, estamos vivenciando uma nova revolução industrial, onde são gerados dados pelos mais diversos tipos de equipamentos e sistemas e esses dados são o centro dessa transformação. A centralização dos dados que antes era limitada apenas aos equipamentos e sistemas de uma indústria, agora chega ao cenário da necessidade de integrar diversas plantas e industrias diferentes, possibilitando análises mais integradas \cite{gerencia-processo-automacao}.
 
 Apesar de serem soluções que oferecem grande disponibilidade através de redundância e espelhamentos, a maioria dos sistemas PIMS ainda possuem arquiteturas centralizadas com baixo potencial de escalabilidade. 
 
@@ -195,9 +199,9 @@ Durante o período de criação do Athenas Historian, a LogAp Sistemas passou pe
 
 Por volta de 2013 a LogAp conseguiu mais força para o projeto, quando foi beneficiada com uma verba de fomento proveniente do progama RHAE do CnPq. O programa foi criado em 1987, em uma parceria do Ministério da Ciência, Tecnologia, Inovações e Comunicações (MCTIC) e do Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq) e é destinado à inserção de mestres e doutores em empresas privadas, preferencialmente de micro, pequeno e médio porte \cite{RHAE}.
 
-Com dificuldades de penetrar no pequeno mercado industrial potiguar e observando o crescente crescimento do mercado de geração de energia eólica (tanto no Brasil, como no Rio Grande do Norte), por volta de 2016, a LogAp decidiu realizar uma análise de mercado afim de obter dados sobre este segmento, verificar em qual contexto poderia atuar e saber qual o potencial do seu público-alvo nesse setor. Como na época nenhum dos membros da equipe da Logap possuía \textit{know-how} nesse setor, foi necessário buscar essa expertise. Nesse momento a LogAp buscou auxilio do CTGAS-ER (Centro de Tecnologias do Gás e Energias Renováveis), centro de referência em energia eólico no Brasil. Através desse contato a LogAp pôde validar quais eram as reais necessidades do mercado de energia eólica, em relação a sistemas para armazenamento, analise e visualização de dados, pôde entender mais sobre a concorrência nesse setor e visualizar a projeção de crescimento do marcado.
+Com dificuldades de penetrar no pequeno mercado industrial potiguar e observando o crescente crescimento do setor de geração de energia eólica (tanto no Brasil, como no Rio Grande do Norte), por volta de 2016, a LogAp decidiu realizar uma análise de mercado afim de obter dados sobre este segmento, verificar em qual contexto poderia atuar e saber qual o potencial do seu público-alvo nesse setor. Como na época nenhum dos membros da equipe da Logap possuía \textit{know-how} nesse setor, foi necessário buscar essa expertise. Nesse momento a LogAp buscou auxilio do CTGAS-ER (Centro de Tecnologias do Gás e Energias Renováveis), centro de referência em energia eólico no Brasil. Através desse contato a LogAp pôde validar quais eram as reais necessidades do mercado de energia eólica, em relação a sistemas para armazenamento, analise e visualização de dados, pôde entender mais sobre a concorrência nesse setor e visualizar a projeção de crescimento do marcado.
 
-Através da pesquisa de mercado, a LogAp e o CTGAS-ER chegaram a conclusão de que existia um mercado propício para soluções de análise de dados, que fosse capaz de auxiliar os gestores dos parque a identificarem rapidamente problemas na produção dos seus parques. Com esse pensamento, o Athenas Historian não seria a solução mais adequada para o cenário encontrado, pois se trata de uma ferramenta generalista que tem como o principal objetivo armazenar e disponibilizar dados para serem utilizados na criação de análises por algum especialista que entenda do setor produtivo utilizado. A partir desse ponto surgiu a iniciativa de uma parceria, para criação de uma solução, denominada inicialmente de Athenas Eolic, especifica para o setor de energia eólica, entre o CTGAS-ER, empresa detentora do conhecimento técnico em produção de energia eólica e a LogAp sistemas, empresa especializada em comunicação industrial e armazenamento e processamento de grandes volumes.
+Através da pesquisa de mercado, a LogAp e o CTGAS-ER chegaram a conclusão de que existia um mercado propício para soluções de análise de dados, que fosse capaz de auxiliar os gestores dos parque a identificarem rapidamente problemas na produção dos seus parques. Com esse pensamento, o Athenas Historian não seria a solução mais adequada para o cenário encontrado, pois se trata de uma ferramenta generalista que tem como o principal objetivo armazenar e disponibilizar dados para serem utilizados na criação de análises por algum especialista que entenda do setor produtivo utilizado. A partir desse ponto, surgiu a iniciativa de uma parceria entre o CTGAS-ER, empresa detentora do conhecimento técnico em produção de energia eólica e a LogAp sistemas, empresa especializada em comunicação industrial e armazenamento e processamento de grandes volumes de dados. Essa parceria deu origem a uma solução, denominada inicialmente de Athenas Eolic, especifica para o setor de energia eólica.
 
 \subsection{CTGAS-ER}
 \label{Sec:cetgas-er}
@@ -206,15 +210,13 @@ Em 1999, foi criado uma parceria entre a Petrobras e o SENAI (Serviço Nacional 
 
 O Centro de Tecnologias do Gás e Energias Renováveis possui sede única em Natal - RN e atua em todo o território brasileiro no eixo de educação profissional, desenvolvimento tecnológico e prestação de serviço para a industria de gás natural e energias renováveis (eólica, solar e PCHs - Pequenas Centrais Hidrelétricas).
 
-Com sede em Natal, no Rio Grande do Norte, o CTGAS-ER atua em todo o país segundo os eixos de educação profissional, desenvolvimento tecnológico e prestação de serviços para o suporte tecnológico à indústria de gás natural e energias renováveis – eólica, solar e pequenas centrais hidroelétricas (PCHs).
-
 Como o mercado de energias renováveis é relativamente novo no Brasil, para atender a demanda especializada deste setor, o CTGAS-ER oferece:
 
 \begin{itemize}
-    \item Capacitação profissional: Diagnóstico de necessidades e qualificação de mão de obra especializada para a industria, através de cursos de nível técnico e superior.
-    \item Inteligência Estratégica da Energia: Suporte técnico para mapeamento das potencialidades dos recursos naturais e das oportunidades de negócios relativas às energias renováveis
-    \item Serviços Técnicos e Tecnológicos: Oferta de serviços técnicos laboratoriais, de inspeção e de consultoria para a indústria de energia.
-    \item Tecnologias: Suporte ao desenvolvimento de tecnologias iminentes ou que já estão sendo utilizadas comercialmente e disponibilização de novas soluções.
+    \item \textbf{Capacitação profissional:} Diagnóstico de necessidades e qualificação de mão de obra especializada para a industria, através de cursos de nível técnico e superior.
+    \item  \textbf{Inteligência Estratégica da Energia:} Suporte técnico para mapeamento das potencialidades dos recursos naturais e das oportunidades de negócios relativas às energias renováveis
+    \item  \textbf{Serviços Técnicos e Tecnológicos:} Oferta de serviços técnicos laboratoriais, de inspeção e de consultoria para a indústria de energia.
+    \item  \textbf{Tecnologias:} Suporte ao desenvolvimento de tecnologias iminentes ou que já estão sendo utilizadas comercialmente e disponibilização de novas soluções.
 \end{itemize}
 
 \subsection{Athenas Eolic}
@@ -232,15 +234,15 @@ Pensando em restringir cada vez mais o risco de indisponibilidade na geração d
 
 O contínuo monitoramento do funcionamento de um parque eólico é um passo importante para a identificação de baixo desempenho, assim como as razões destes desvios. Alguns proprietários de parques tem procurado realizar esse tipo de procedimento para que seja possível questionar de forma sustentável, os fabricantes em relação a eventuais desempenhos insatisfatórios.
 
-Mesmo hoje em dia com o crescente avanço das tecnologias e da quarta revolução industrial que vivemos, poucos são os proprietários de parques que têm visão de avaliação dos seus empreendimentos, ficando na maioria das vezes reféns de análises duvidosas que podem levar a conclusões erradas em relação a operação e ao desempenho dos parques eólicos. De uma maneira geral, pode-se dizer que o proprietário realiza uma avaliação anual de desempenho, comparando a energia produzida com um valor de referência assumido para o parque. Se desta comparação resultar uma produção anual superior ao valor de referência, na maioria das vezes a analisa termina. Caso contrário, se for encontrado um valor inferior ao esperado, é investigado se ocorreu quebra na disponibilidade, que possa justificar a situação e responsabilizar o fabricante, caso esteja relacionado a baixa disponibilidade dos aerogeradores, ou o operador da rede, caso esteja relacionado a baixa disponibilidade da rede elétrica \cite{metodologia-avaliacao-desempenho-de-parques}.
+Mesmo hoje em dia com o crescente avanço das tecnologias e da quarta revolução industrial que vivemos, poucos são os proprietários de parques que têm visão de avaliação dos seus empreendimentos, ficando na maioria das vezes reféns de análises duvidosas que podem levar a conclusões erradas em relação a operação e ao desempenho dos parques eólicos. De uma maneira geral, pode-se dizer que o proprietário realiza uma avaliação anual de desempenho, comparando a energia produzida com um valor de referência assumido para o parque. Se desta comparação resultar uma produção anual superior ao valor de referência, na maioria das vezes a analise termina. Caso contrário, se for encontrado um valor inferior ao esperado, é investigado se ocorreu quebra na disponibilidade, que possa justificar a situação e responsabilizar o fabricante, caso esteja relacionado a baixa disponibilidade dos aerogeradores, ou o operador da rede, caso esteja relacionado a baixa disponibilidade da rede elétrica \cite{metodologia-avaliacao-desempenho-de-parques}.
 
 Segundo \citeasnoun{metodologia-avaliacao-desempenho-de-parques}, as discussões entre os fabricantes e os proprietários dos parques são, na maioria das vezes, inconclusivas. Isso se dá devido ao fato de que o proprietário dispões de poucas informações para apresentar ao fabricante, que este por sua vez, dispões de uma quantidade muito maior de dados e conhecimento em relação a operação do parque. O questionamento do desempenho insatisfatório ser baseado em critérios que não transparecem seguranças nas conclusões, é facilmente rebatida pelo fabricante.
 
-Nesse cenário, o projeto Athenas Eolic surge para auxiliar na gestão de operação e manutenção de parques eólicos, com a proposta de coletar automaticamente, armazenar e processar os dados fornecidos pelos sensores dos aerogeradores através do sistema SCADA e fornecer aos gestores dos parques indicadores de desempenho e disponibilidade de forma que eles possam identificar rapidamente desvios na produção e as possíveis causas desses desvio, para que sejam reparados em tempo hábil. 
+Nesse cenário, o projeto Athenas Eolic surgiu para auxiliar na gestão de operação e manutenção de parques eólicos, com a proposta de coletar automaticamente, armazenar e processar os dados fornecidos pelos sensores dos aerogeradores através do sistema SCADA e fornecer aos gestores dos parques indicadores de desempenho e disponibilidade, para possibilitar terem informações mais embasadas para possíveis discussões com os fabricantes. 
 
 No seu nascimento em 2016, o projeto Athenas Eolic contava com um pequeno time de desenvolvimento. Com pouco recurso para investimento, o projeto se desenvolvia lentamente com o único desenvolvedor de software na equipe. Devido a isso o desenvolvimento da especificação mínima necessária do sistema só foi concluído por volta do segundo semestre de 2017, dando origem a primeira versão do MVP (\textit{Minimun Valuable Product}, em inglês). Para validação do MVP, foi realizado um projeto piloto em um parque eólico no Rio Grande do Norte. Com a ajuda deste projeto piloto, foi possível validar com dados reais o funcionamento do sistema, realizar melhorias nas análises já existentes e especificar novas.
 
-Em 2017 uma das principais metas do projeto era a viabilização financeira para que fosse possível aumentar a equipe do projeto e acelerar o processo de desenvolvimento e comercialização da solução. Uma das formas de alcançar esse objetivo era através de aquisição de investimento ou fomento. No mesmo ano, o BNB (Banco do Nordeste) lançou o edital FUNDECI - Fundo de Desenvolvimento Econômico, Científico, Tecnológico e de Inovação, mecanismo pelo qual o banco financia a realização de projetos de pesquisa, difusão tecnológica e projetos de inovação, com vistas ao desenvolvimento, adaptação ou aperfeiçoamento de produtos e processos de interesse para o setor produtivo da região nordeste \cite{bnb-fundeci}. No mesmo ano foi lançado o edital CNPq MCTIC/SETEC, que visa apoiar projetos de Pesquisa e Desenvolvimento (P\&D) que visem contribuir para o desenvolvimento científico e tecnológico e a inovação no Brasil, nas áreas de inovação e empreendedorismo, por meio da inserção de pesquisadores em empresas privadas vinculadas às incubadoras de empresas em operação no país \cite{cnpq-mctic}. A LogAp foi a única empresa do Rio Grande do Norte que foi contemplada nestes dois editais de fomento e conseguiu com isso um investimento de quase 500 mil reais, para 2 anos de desenvolvimento do Athenas Eolic. Hoje a equipe executora do projeto é formada 5 pessoas no time de desenvolvimento de software, 2 pessoas no time de pesquisa de novas tecnologias e 2 pessoas no time comercial.
+Em 2017 uma das principais metas do projeto era a viabilização financeira para que fosse possível aumentar a equipe do projeto e acelerar o processo de desenvolvimento e comercialização da solução. Uma das formas de alcançar esse objetivo era através de aquisição de investimento ou fomento. No mesmo ano, o BNB (Banco do Nordeste) lançou o edital FUNDECI - Fundo de Desenvolvimento Econômico, Científico, Tecnológico e de Inovação, mecanismo pelo qual o banco financia a realização de projetos de pesquisa, difusão tecnológica e projetos de inovação, com vistas ao desenvolvimento, adaptação ou aperfeiçoamento de produtos e processos de interesse para o setor produtivo da região nordeste \cite{bnb-fundeci}. No mesmo ano foi lançado o edital CNPq MCTIC/SETEC, que apoia projetos de Pesquisa e Desenvolvimento (P\&D) que visem contribuir para o desenvolvimento científico e tecnológico e a inovação no Brasil, nas áreas de inovação e empreendedorismo, por meio da inserção de pesquisadores em empresas privadas vinculadas às incubadoras de empresas em operação no país \cite{cnpq-mctic}. A LogAp foi a única empresa do Rio Grande do Norte que foi contemplada nestes dois editais de fomento e conseguiu com isso um investimento de quase 500 mil reais, para 2 anos de desenvolvimento do Athenas Eolic. Hoje a equipe executora do projeto é formada por 5 pessoas no time de desenvolvimento de software, 2 pessoas no time de pesquisa de novas tecnologias e 2 pessoas no time comercial.
 
 Em 2018, pensando na visibilidade da marca Athenas Eolic foi iniciado um processo de mudança de nome e da marca do produto. O principal motivo foi a necessidade da empresa se introduzir no mercado e, por isso, necessitava afirmar a sua identidade de forma diferenciada e em sintonia com o setor, já que "Eolic" não é um termo comum na área. Surgiu assim a marca Windbox \textsuperscript{\textregistered}, como pode ser vista na imagem \ref{Fig:ilustracaoMarcaWindbox}, com o \textit{slogan}: Eficiência em gestão operacional de parques eólicos. Neste mesmo ano, já com a nova marca, o projeto concorreu a um investimento de 1,5 milhões no programa de inovação aberta do Grupo Enel, o Energy Start. O programa tem como principal propósito, investir no desenvolvimento de negócios e na criação de um ecossistema de \textit{startups} em diversos setores \cite{enerl-energy-start}. O Windbox chegou até a etapa final do processo, mas não conseguiu o investimento.
 
